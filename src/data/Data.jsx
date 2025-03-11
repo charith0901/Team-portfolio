@@ -114,7 +114,7 @@ export const projects = [
       content: "https://www.scheduleease.live"
     },
     features: [
-      "Real-time inventory updates",
+      "User Account Management",
       "Secure payment gateway",
       "User-friendly interface",
       "Multi-vendor support"
