@@ -30,6 +30,9 @@ pipeline {
             steps {
                 sshagent(credentials: ['abc264ad-bfca-427a-9d14-a0fc7e32958c']) {
                     sh '''
+                        set -e  # Stop on error
+                        echo "Connecting to server..."
+                        ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "echo 'Connected successfully!'"
                         ssh $SERVER_USER@$SERVER_IP "mkdir -p $DEPLOY_PATH"
                         rsync -avz --delete dist/ $SERVER_USER@$SERVER_IP:$DEPLOY_PATH/
                         ssh $SERVER_USER@$SERVER_IP "pm2 restart all"
