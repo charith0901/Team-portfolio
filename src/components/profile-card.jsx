@@ -66,66 +66,67 @@ const ProfileCard = ({ member }) => {
 
   return (
     <Link to={`member/${member.username}`} 
-    className="min-h-screen flex items-center justify-center p-8 relative">
+      className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-8 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 z-0">
-      {/* Floating particles/orbs background effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute rounded-full opacity-20 bg-blue-${300 + ((i % 3) * 100)}`}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 100 + 50}px`,
-              height: `${Math.random() * 100 + 50}px`,
-              animation: `float ${2.5 + Math.random() * 10}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2.5}s`
-            }}
-          ></div>
-        ))}
-      </div>
-      <div
-        ref={cardRef}
-        className="w-full h-full flex flex-col items-center text-center justify-center space-y-8 relative z-10 backdrop-blur-sm bg-gray-100/0.5 p-10 rounded-xl border border-gray-700"
+        {/* Floating particles/orbs background effect */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(50)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full opacity-20"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                width: `${Math.random() * 100 + 50}px`,
+                height: `${Math.random() * 100 + 50}px`,
+                backgroundColor: `rgb(${147 + ((i % 3) * 20)}, ${197 + ((i % 3) * 20)}, ${253 + ((i % 3) * -20)})`,
+                animation: `float ${2.5 + Math.random() * 10}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2.5}s`
+              }}
+            ></div>
+          ))}
+        </div>
+        <div
+          ref={cardRef}
+          className="w-full max-w-6xl mx-auto h-full flex flex-col items-center text-center justify-center gap-6 relative z-10 backdrop-blur-sm bg-opacity-5 bg-gray-100/0.5 p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl border border-gray-700 lg:flex-row lg:text-left lg:gap-8"
         >
-        <div ref={imageRef} className="w-1/3 flex justify-center">
-          <img
-            src={image || "/api/placeholder/300/300"}
-            alt={`${name}'s profile`}
-            className="w-60 h-60 object-cover rounded-full shadow-lg border-4 border-white"
-          />
-        </div>
+          <div ref={imageRef} className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 flex justify-center">
+            <img
+              src={image || "/api/placeholder/300/300"}
+              alt={`${name}'s profile`}
+              className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 lg:w-56 lg:h-56 xl:w-60 xl:h-60 object-cover rounded-full shadow-lg border-4 border-white"
+            />
+          </div>
 
-        <div ref={contentRef} className="w-2/3 text-center md:text-left p-6 space-y-4">
-          <h3 className="text-5xl font-bold text-gray-200">{name}</h3>
-          <div className="flex flex-wrap justify-center md:justify-start gap-2">
-            {roles.map((role) => (
-              <span key={role} className="text-lg font-medium text-white bg-blue-400 px-4 py-2 rounded-full">
-                {role}
-              </span>
-            ))}
-          </div>
-          <p className="text-lg text-gray-300 leading-relaxed">{bio}</p>
-          <div className="flex justify-center md:justify-start space-x-4 mt-4">
-           
+          <div ref={contentRef} className="w-full lg:w-2/3 text-center lg:text-left p-2 sm:p-4 md:p-6 space-y-2 sm:space-y-3 md:space-y-4">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200">{name}</h3>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+              {roles.map((role) => (
+                <span key={role} className="text-sm sm:text-base md:text-lg font-medium text-white bg-blue-400 px-3 py-1 sm:px-4 sm:py-2 rounded-full">
+                  {role}
+                </span>
+              ))}
+            </div>
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">{bio}</p>
+            <div className="flex justify-center lg:justify-start space-x-4 mt-4">
+              {/* Social icons would go here */}
+            </div>
           </div>
         </div>
-      </div>
-      {/* Add custom CSS for the floating animation */}
-      <style>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0px) translateX(0px);
+        {/* Add custom CSS for the floating animation */}
+        <style>{`
+          @keyframes float {
+            0% {
+              transform: translateY(0px) translateX(0px);
+            }
+            50% {
+              transform: translateY(-20px) translateX(10px);
+            }
+            100% {
+              transform: translateY(0px) translateX(0px);
+            }
           }
-          50% {
-            transform: translateY(-20px) translateX(10px);
-          }
-          100% {
-            transform: translateY(0px) translateX(0px);
-          }
-        }
-      `}</style>
+        `}</style>
       </div>
     </Link>
   );
