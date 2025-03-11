@@ -28,7 +28,7 @@ pipeline {
 
         stage('Deploy to Server') {
             steps {
-                sshagent(credentials:['65458e70-7153-494d-a419-6daba9da3f34']) {
+                sshagent(credentials:['abc264ad-bfca-427a-9d14-a0fc7e32958c']) {
                     sh """
                         ssh $SERVER_USER@$SERVER_IP 'mkdir -p $DEPLOY_PATH'
                         rsync -avz --delete dist/ $SERVER_USER@$SERVER_IP:$DEPLOY_PATH/
