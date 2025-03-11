@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'git@github.com:charith0901/Team-portfolio.git'
+                git branch: 'main', url: 'https://github.com/charith0901/Team-portfolio.git'
             }
         }
 
