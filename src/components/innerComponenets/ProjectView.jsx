@@ -32,8 +32,8 @@ const ProjectView = () => {
   useGSAP(() => {
     if (!project) return;
 
-    // Header animations
-    gsap.from(headerRef.current.querySelectorAll("h1, p"), {
+    // Header animations with hero image
+    gsap.from(headerRef.current.querySelectorAll("h1, p, img"), {
       y: 50,
       opacity: 0,
       duration: 1,
@@ -42,17 +42,6 @@ const ProjectView = () => {
     });
 
     // Details section animations
-    gsap.from(detailsRef.current.querySelector("img"), {
-      scale: 0.8,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: detailsRef.current,
-        start: "top center",
-        toggleActions: "play none none reverse"
-      }
-    });
-
     gsap.from(detailsRef.current.querySelectorAll("h2, li"), {
       y: 30,
       opacity: 0,
@@ -96,12 +85,22 @@ const ProjectView = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* Project Header */}
+      {/* Project Header with Hero Image */}
       <div 
         ref={headerRef}
-        className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6"
+        className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6 relative overflow-hidden"
       >
-        <div className="max-w-4xl mx-auto px-4">
+        {/* Hero Image with overlay */}
+        <div className="absolute inset-0 z-0 opacity-30">
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="w-full h-full object-cover" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-indigo-900 opacity-70"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
             {project.title}
           </h1>
@@ -143,13 +142,7 @@ const ProjectView = () => {
         className="min-h-screen flex flex-col justify-center items-center p-6 md:p-12 bg-white text-gray-800"
       >
         <div className="max-w-4xl w-full">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="rounded-xl shadow-xl w-full max-w-2xl mx-auto object-cover hover:shadow-2xl transition-shadow duration-300" 
-          />
-          
-          <div className="mt-16 text-center">
+          <div className="mt-8 text-center">
             <h2 className="text-3xl font-bold mt-6 inline-flex items-center">
               <Layers className="mr-3 text-blue-600" />
               Key Features

@@ -46,7 +46,7 @@ const ProjectShowcase = ({projects}) => {
       <div className="absolute h-full flex">
         {projects.map((project, index) => (
           
-          <Link key={index} to={project.title ? `/project/${project.title}` : '/'}>
+          <Link key={index} to={project.title && `/project/${project.title}`}>
           <div
             ref={addPanelRefForProject}
             className="h-full w-screen flex items-center justify-center shrink-0"

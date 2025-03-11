@@ -105,13 +105,13 @@ export const teamMembers = [
 export const projects = [
   {},
   {
-    title: "E-commerce Platform",
+    title: "Ruhuna ScheduleEase",
     description: "A full-featured e-commerce platform with real-time inventory management and payment processing.",
-    image: "/api/placeholder/400/300",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    image: "/images/projects/scheduleEase/welcome_background.jpg",
+    tags: ["Laravel","Inertia.js","Node.js","React", "MySQL"],
     link: {
-      github: "https://project1.example.com",
-      content: "https://abd.live"
+      github: "https://github.com/gimhanadeshan/Group-Project-CSC2233",
+      content: "https://www.scheduleease.live"
     },
     features: [
       "Real-time inventory updates",
@@ -119,7 +119,7 @@ export const projects = [
       "User-friendly interface",
       "Multi-vendor support"
     ],
-    languages: ["JavaScript", "Node.js", "MongoDB"]
+    languages: ["Node.js", "Mysql","Laravel",,"React","Inertia.js","Tailwind CSS","vs code"]
   },
   {
     title: "Task Management App",

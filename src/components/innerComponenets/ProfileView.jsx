@@ -24,6 +24,9 @@ const ProfileOverview = () => {
   const skillsRef = useRef(null);
   const educationRef = useRef(null);
   const socialRef = useRef(null);
+  
+  // Main container ref for master ScrollTrigger timeline
+  const mainContainerRef = useRef(null);
 
   // Handle scroll and set active section
   useEffect(() => {
@@ -73,128 +76,175 @@ const ProfileOverview = () => {
     }
   };
 
-  // Animation effect
+  // Enhanced animation setup with ScrollTrigger
   useEffect(() => {
     if (!member) return;
+    
+    // Reset scroll position when profile loads
     window.scrollTo(0, 0);
     
-    // Header section animation
-    gsap.fromTo(
-      headerRef.current,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        delay: 0.2,
-        ease: "power2.out"
-      }
-    );
-
-    // Details section with staggered children
-    gsap.fromTo(
-      detailsRef.current.children,
-      { opacity: 0, x: -10 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        delay: 0.4,
-        ease: "power1.out"
-      }
-    );
-
-    // Skills cards animation
-    gsap.fromTo(
-      skillsRef.current.children,
-      { opacity: 0, scale: 0.8, y: 10 },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 0.4,
-        stagger: 0.05,
-        delay: 0.6,
-        ease: "back.out(1.5)"
-      }
-    );
-
-    // Education items
-    if (educationRef.current) {
+    // Create a context to contain all our ScrollTrigger animations
+    const ctx = gsap.context(() => {
+      // Initial animations that don't depend on scroll
+      
+      // Header section animation
       gsap.fromTo(
-        educationRef.current.children,
+        headerRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: 0.2,
+          ease: "power2.out"
+        }
+      );
+
+      // Details section with staggered children
+      gsap.fromTo(
+        detailsRef.current.children,
+        { opacity: 0, x: -10 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          delay: 0.4,
+          ease: "power1.out"
+        }
+      );
+
+      // Skills cards animation with ScrollTrigger
+      gsap.fromTo(
+        skillsRef.current.children,
+        { opacity: 0, scale: 0.8, y: 30 },
+        {
+          scrollTrigger: {
+            trigger: skillsRef.current,
+            start: "top 80%",
+            end: "bottom 60%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "back.out(1.5)"
+        }
+      );
+
+      // Education items with ScrollTrigger
+      if (educationRef.current) {
+        gsap.fromTo(
+          educationRef.current.children,
+          { opacity: 0, y: 30 },
+          {
+            scrollTrigger: {
+              trigger: educationRef.current,
+              start: "top 85%",
+              end: "bottom 70%",
+              toggleActions: "play none none reverse",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out"
+          }
+        );
+      }
+
+      // Social links animation
+      gsap.fromTo(
+        socialRef.current.children,
         { opacity: 0, y: 15 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
+          duration: 0.4,
           stagger: 0.1,
-          delay: 0.8,
+          delay: 0.6,
           ease: "power2.out"
         }
       );
-    }
 
-    // Social links animation
-    gsap.fromTo(
-      socialRef.current.children,
-      { opacity: 0, y: 15 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        stagger: 0.1,
-        delay: 1,
-        ease: "power2.out"
-      }
-    );
-
-    // Create scroll animations for the first three sections only
-    // We'll exclude the projects section to avoid conflicts with ProjectShowcase's own GSAP animations
-    const sections = [
-      { ref: aboutSectionRef, delay: 0.2 },
-      { ref: detailsSectionRef, delay: 0.3 },
-      { ref: skillsSectionRef, delay: 0.4 }
-    ];
-
-    sections.forEach(section => {
+      // Parallax effect for about section
       ScrollTrigger.create({
-        trigger: section.ref.current,
-        start: 'top 80%',
-        onEnter: () => {
-          gsap.fromTo(
-            section.ref.current,
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power2.out"
-            }
-          );
-        },
-        once: true
+        trigger: aboutSectionRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: self => {
+          const progress = self.progress;
+          gsap.to(aboutSectionRef.current.querySelector('.bg-white'), {
+            y: progress * -30,
+            duration: 0.1,
+            ease: "none"
+          });
+        }
       });
-    });
 
-    // We'll use a simpler animation for the projects section header only
-    // This avoids interfering with ProjectShowcase's horizontal scrolling
-    gsap.fromTo(
-      "#projects-header",
-      { opacity: 0, y: 20 },
-      {
-        scrollTrigger: {
-          trigger: projectsSectionRef.current,
-          start: 'top 80%',
-          once: true
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power2.out"
-      }
-    );
+      // Parallax effect for details section
+      ScrollTrigger.create({
+        trigger: detailsSectionRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: self => {
+          const progress = self.progress;
+          gsap.to(detailsSectionRef.current.querySelector('.bg-white'), {
+            y: progress * -40,
+            duration: 0.1,
+            ease: "none"
+          });
+        }
+      });
+
+      // Add scroll-triggered animations for section titles
+      const sections = [
+        { ref: aboutSectionRef, selector: 'h2', delay: 0 },
+        { ref: detailsSectionRef, selector: 'h2', delay: 0 },
+        { ref: skillsSectionRef, selector: 'h2', delay: 0 }
+      ];
+
+      sections.forEach(section => {
+        gsap.fromTo(
+          section.ref.current.querySelector(section.selector),
+          { opacity: 0, y: 20 },
+          {
+            scrollTrigger: {
+              trigger: section.ref.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: section.delay,
+            ease: "power2.out"
+          }
+        );
+      });
+
+      // Projects section header animation
+      gsap.fromTo(
+        "#projects-header",
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: {
+            trigger: projectsSectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }
+      );
+    });
+    
+    // Cleanup function
+    return () => ctx.revert();
   }, [member]);
 
   // Error state - Member not found
@@ -212,10 +262,10 @@ const ProfileOverview = () => {
 
   // Main render
   return (
-    <div className="relative bg-gray-50">
-      {/* Fixed Navigation */}
+    <div className="relative bg-gray-50" ref={mainContainerRef}>
+      {/* Fixed Navigation with Progress Indicator */}
       <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50">
-        <div className="flex flex-col gap-4 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg">
+        <div className="flex flex-col gap-4 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg">  
           <button 
             onClick={() => scrollToSection('about')}
             title='about'
@@ -512,12 +562,17 @@ const ProfileOverview = () => {
       </section>
 
       {/* Projects Section */}
-      <section 
-        ref={projectsSectionRef} 
-        className="h-full w-full relative bg-gray-800 py-8"
+      <section
+        ref={projectsSectionRef}
+        className="h-lvw w-full relative bg-gray-800 py-8"
       >
         <div className="w-full h-full">
-          <h1 className="text-4xl font-bold text-white">My Projects</h1>
+          <h1 id="projects-header" className="text-4xl font-bold text-white text-center mb-6">My Projects</h1>
+          
+          {/* Scroll Down Text */}
+          <div className="text-center text-gray-300 text-sm mb-8 flex items-center justify-center">
+            <span>Scroll down to explore</span>
+          </div>
           
           {/* ProjectShowcase is rendered without wrapping it in animations that might interfere */}
           <ProjectShowcase projects={member.projects} />

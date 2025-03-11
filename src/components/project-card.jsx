@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { ExternalLink } from "lucide-react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,16 +10,17 @@ const ProjectCard = ({ title, description, image, tags }) => {
   const imageRef = useRef(null);
   const contentRef = useRef(null);
   const tagsRef = useRef(null);
-  const patternRef = useRef(null);
+  const patternRef = useRef(null)
 
   useEffect(() => {
     // Background pattern animation
     gsap.to(patternRef.current, {
-      backgroundPosition: "100% 100%",
+      backgroundPosition: "200% 200%",
       duration: 20,
       repeat: -1,
-      ease: "none",
+      ease: "linear",
     });
+
 
     // Card entrance animation
     gsap.fromTo(
@@ -137,26 +137,12 @@ const ProjectCard = ({ title, description, image, tags }) => {
         ref={patternRef}
         className="absolute inset-0 bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900 z-0 overflow-hidden"
         style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233f51b5' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E\")",
-          backgroundSize: "cover"
+          backgroundImage: "url('/images/pattern.jpg')",
+          backgroundSize: "cover",
+          opacity: 0.1
         }}
+        
       >
-        {/* Floating particles effect */}
-        <div className="absolute inset-0 opacity-40">
-          {Array.from({ length: 20 }).map((_, index) => (
-            <div 
-              key={index}
-              className="absolute rounded-full bg-blue-400 opacity-20"
-              style={{
-                width: Math.random() * 10 + 5 + "px",
-                height: Math.random() * 10 + 5 + "px",
-                top: Math.random() * 100 + "%",
-                left: Math.random() * 100 + "%",
-                animation: `float ${Math.random() * 10 + 10}s infinite ease-in-out`
-              }}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Main card content */}
