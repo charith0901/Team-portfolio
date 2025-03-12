@@ -4,7 +4,7 @@ pipeline {
     environment {
         SERVER_IP = '128.199.214.198'
         SERVER_USER = 'root'
-        DEPLOY_PATH = '/var/www/team-portfolio'
+        DEPLOY_PATH = '/var/www/web/team-portfolio'
     }
 
     stages {
