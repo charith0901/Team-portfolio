@@ -3,7 +3,7 @@ module.exports = {
       name: "team-portfolio",
       script: "npm",
       args: "run start",
-      cwd: "/var/www/web/team-portfolio",
+      cwd: "/var/www/team-portfolio",
       watch: true,
     }]
   };
