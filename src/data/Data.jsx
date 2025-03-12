@@ -115,7 +115,7 @@ export const projects = [
     },
     features: [
       "User Account Management",
-      "Secure payment gateway",
+      "Time Table",
       "User-friendly interface",
       "Multi-vendor support"
     ],
