@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Users, FolderKanban, Contact } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +16,14 @@ const Navbar = () => {
           <div className="flex justify-between h-16">
             {/* Logo and Desktop Navigation */}
             <div className="flex items-center">
+              <Link
+              to={"/"}
+              >
               <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-xl font-bold text-indigo-600">Team Portfolio</h1>
+                <img className="block h-8 w-auto" src="/logo.png" alt="DataDragons" />
+                <h1 className="text-xl font-bold text-indigo-600">DataDragons</h1>
               </div>
+              </Link>
               
               {/* Desktop menu */}
               <div className="hidden md:ml-6 md:flex md:space-x-8">
