@@ -39,6 +39,9 @@ const ProjectShowcase = ({projects}) => {
 
   return (
     <>
+    <section id="projects" className="h-full w-full relative flex items-center justify-center bg-gray-800 py-8">
+                <h1 className="text-4xl font-bold text-white">Our Projects</h1>
+            </section>
     <section 
       ref={scrollContainerRefForProject}
       className="relative h-screen overflow-hidden bg-neutral-100"
