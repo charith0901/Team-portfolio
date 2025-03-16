@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ProfileOverview from './components/innerComponenets/ProfileView';
 import ProjectView from './components/innerComponenets/ProjectView';
-import NotFound from './components/notFound';
+import NotFound from './components/NotFound';
 
 const App = () => {
 
