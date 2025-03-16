@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
     createSitemap({
-      hostname: 'https://datagragons.live',
+      hostname: 'https://datadragons.live',
       lastmod: new Date().toISOString().slice(0, 10),
       changefreq: 'weekly',
       priority:1,  
