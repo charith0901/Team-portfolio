@@ -70,11 +70,11 @@ const ProjectView = () => {
 
   if (!project) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen p-4 text-center bg-gradient-to-b from-gray-50 to-gray-100">
-        <div className="bg-white p-8 rounded-xl shadow-lg max-w-md animate-fade-in">
+      <div className="flex flex-col items-center justify-center h-screen p-4 text-center bg-gradient-to-b from-indigo-50 to-blue-100">
+        <div className="bg-white p-8 rounded-xl shadow-xl max-w-md animate-fade-in border-l-4 border-blue-600">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Project Not Found</h2>
           <p className="text-gray-600 mb-6">The project you're looking for doesn't exist or has been removed.</p>
-          <Link to="/" className="group flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <Link to="/" className="group flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
             <ArrowLeft className="mr-2 h-5 w-5 group-hover:translate-x-[-4px] transition-transform" />
             Back to Home
           </Link>
@@ -84,27 +84,27 @@ const ProjectView = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Project Header with Hero Image */}
       <div 
         ref={headerRef}
-        className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6 relative overflow-hidden"
+        className="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-700 to-indigo-800 text-white p-6 relative overflow-hidden"
       >
         {/* Hero Image with overlay */}
-        <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute inset-0 z-0 opacity-60">
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover" 
+            className="w-full h-full object-cover filter blur-sm hover:blur-none transition-all duration-700" 
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-indigo-900 opacity-70"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-indigo-900 opacity-60"></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200 drop-shadow-lg">
             {project.title}
           </h1>
-          <p className="text-xl max-w-2xl mx-auto leading-relaxed text-blue-100">
+          <p className="text-xl max-w-2xl mx-auto leading-relaxed text-blue-100 bg-blue-900/30 p-6 rounded-xl shadow-lg">
             {project.description}
           </p>
           
@@ -114,7 +114,7 @@ const ProjectView = () => {
               href={project.link.github} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="group flex items-center justify-center px-8 py-4 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors shadow-lg hover:shadow-xl"
+              className="group flex items-center justify-center px-8 py-4 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors shadow-lg hover:shadow-xl border border-gray-700 hover:-translate-y-1 transition-transform"
             >
               <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               GitHub Repository
@@ -123,7 +123,7 @@ const ProjectView = () => {
               href={project.link.content} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+              className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-500 hover:to-indigo-500 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform"
             >
               <ExternalLink className="mr-2 h-5 w-5 group-hover:translate-x-1 group-hover:translate-y-[-1px] transition-transform" />
               Live Demo
@@ -131,7 +131,9 @@ const ProjectView = () => {
           </div>
 
           <div className="mt-12 animate-bounce">
-            <ArrowLeft className="transform rotate-270 mx-auto text-blue-200" />
+            <div className="w-10 h-10 mx-auto bg-white/10 rounded-full flex items-center justify-center">
+              <ArrowLeft className="transform rotate-90 text-blue-200" />
+            </div>
           </div>
         </div>
       </div>
@@ -143,7 +145,7 @@ const ProjectView = () => {
       >
         <div className="max-w-4xl w-full">
           <div className="mt-8 text-center">
-            <h2 className="text-3xl font-bold mt-6 inline-flex items-center">
+            <h2 className="text-3xl font-bold mt-6 inline-flex items-center bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600">
               <Layers className="mr-3 text-blue-600" />
               Key Features
             </h2>
@@ -151,9 +153,9 @@ const ProjectView = () => {
               {project.features?.map((feature, index) => (
                 <li 
                   key={index} 
-                  className="text-gray-700 bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start"
+                  className="text-gray-700 bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-start hover:-translate-y-1 transition-transform group"
                 >
-                  <Code className="mr-3 text-blue-600 flex-shrink-0 mt-1" />
+                  <Code className="mr-3 text-blue-600 flex-shrink-0 mt-1 group-hover:rotate-12 transition-transform" />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -165,11 +167,11 @@ const ProjectView = () => {
       {/* Technologies & Links */}
       <div 
         ref={techRef}
-        className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-50 to-gray-100 p-6 md:p-12 text-gray-800"
+        className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-indigo-800 to-blue-700 p-6 md:p-12 text-white"
       >
         <div className="max-w-4xl w-full text-center">
-          <h2 className="text-3xl font-bold inline-flex items-center">
-            <Cpu className="mr-3 text-blue-600" />
+          <h2 className="text-3xl font-bold inline-flex items-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+            <Cpu className="mr-3 text-blue-300" />
             Technologies Used
           </h2>
           
@@ -177,7 +179,7 @@ const ProjectView = () => {
             {project.languages?.map((lang, index) => (
               <span 
                 key={index} 
-                className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:translate-y-[-2px]"
+                className="bg-white/10 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:bg-white/20 hover:-translate-y-1"
               >
                 {lang}
               </span>
@@ -187,7 +189,7 @@ const ProjectView = () => {
           <div className="mt-16">
             <Link 
               to="/" 
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              className="inline-flex items-center bg-white/10 px-6 py-3 rounded-lg text-white hover:bg-white/20 transition-colors"
             >
               <ArrowLeft className="mr-2 h-5 w-5" />
               Back to Projects
