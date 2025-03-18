@@ -233,7 +233,7 @@ export const teamMembers = [
         tags: ["React", "Node.js", "Express","OpenWeather Api"],
         link: {
           github: "https://github.com/charith0901/Weather-Explorer",
-          content: " "
+          content: "https://weather-explorer-bay.vercel.app/"
         },
         status: "Completed",
         creation_date: "2025-03-11",
