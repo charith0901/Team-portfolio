@@ -1,6 +1,5 @@
 // src/data/Data.js
 export const teamMembers = [
-  {},
   {
     name: "Sameera Athukorala",
     username: "sameera_dev",
