@@ -84,6 +84,18 @@ const ProjectView = () => {
   }
 
   return (
+    <>
+    {/*meta data*/}
+    <title>{project.title}</title>
+    <meta name="title" content={project.title}/>
+    <meta name="description" content={`Infomation of ${project.title} project`}/>
+    <meta name="keywords" content={`computer science , software engineering ,data science ,team ,projects ,DataDragons ${project.title} 
+    ${project.languages && project.languages>0 && project.languages.join(" , ")}
+    `}/>
+    <meta name="author" content="datadragons team"/>
+    <meta name="robots" content="index, follow"/>
+
+
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Project Header with Hero Image */}
       <div 
@@ -198,6 +210,7 @@ const ProjectView = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
