@@ -6,71 +6,87 @@ import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProfileCard = ({ member }) => {
-  const { name, roles, image, bio } = member;
+const ProfileCard = ({ member, className = "" }) => {
+  const { name, roles, image, bio, username } = member;
   const cardRef = useRef(null);
   const imageRef = useRef(null);
   const contentRef = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      cardRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
-      }
-    );
+    const cardElement = cardRef.current;
+    const imageElement = imageRef.current;
+    const contentChildren = contentRef.current?.children;
 
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        delay: 0.3,
-        ease: 'back.out(1.7)',
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      }
-    );
+    if (!cardElement || !imageElement || !contentChildren) return;
 
-    gsap.fromTo(
-      contentRef.current.children,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      }
-    );
+    const animations = [
+      gsap.fromTo(
+        cardElement,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: cardElement,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      ),
+      gsap.fromTo(
+        imageElement,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          delay: 0.3,
+          ease: 'back.out(1.7)',
+          scrollTrigger: {
+            trigger: cardElement,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      ),
+      gsap.fromTo(
+        contentChildren,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: cardElement,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      )
+    ];
+
+    // Cleanup function
+    return () => {
+      animations.forEach(animation => {
+        if (animation.scrollTrigger) {
+          animation.scrollTrigger.kill();
+        }
+        animation.kill();
+      });
+    };
   }, []);
 
   return (
-    <Link to={`member/${member.username}`} 
-      className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-8 relative">
+    <Link to={`/member/${username || name.toLowerCase().replace(/\s+/g, '-')}`} 
+      className={`min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-8 relative ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 z-0">
         {/* Floating particles/orbs background effect */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(50)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <div
               key={i}
               className="absolute rounded-full opacity-20"
@@ -88,7 +104,7 @@ const ProfileCard = ({ member }) => {
         </div>
         <div
           ref={cardRef}
-          className="w-full max-w-6xl mx-auto h-full flex flex-col items-center text-center justify-center gap-6 relative z-10 backdrop-blur-sm bg-opacity-5 bg-gray-100/0.5 p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl border border-gray-700 lg:flex-row lg:text-left lg:gap-8"
+          className="w-full max-w-6xl mx-auto h-full flex flex-col items-center text-center justify-center gap-6 relative z-10 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl border border-gray-700 lg:flex-row lg:text-left lg:gap-8"
         >
           <div ref={imageRef} className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 flex justify-center">
             <img
@@ -101,19 +117,16 @@ const ProfileCard = ({ member }) => {
           <div ref={contentRef} className="w-full lg:w-2/3 text-center lg:text-left p-2 sm:p-4 md:p-6 space-y-2 sm:space-y-3 md:space-y-4">
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200">{name}</h3>
             <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-              {roles.map((role) => (
-                <span key={role} className="text-sm sm:text-base md:text-lg font-medium text-white bg-blue-400 px-3 py-1 sm:px-4 sm:py-2 rounded-full">
+              {roles && roles.map((role, index) => (
+                <span key={index} className="text-sm sm:text-base md:text-lg font-medium text-white bg-blue-500 px-3 py-1 sm:px-4 sm:py-2 rounded-full">
                   {role}
                 </span>
               ))}
             </div>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">{bio}</p>
             <div className="flex justify-center lg:justify-start space-x-4 mt-4">
-              {/* Social icons would go here */}
             </div>
           </div>
         </div>
-        {/* Add custom CSS for the floating animation */}
         <style>{`
           @keyframes float {
             0% {

@@ -244,6 +244,18 @@ const ProfileOverview = () => {
   
   // Main render
   return (
+    <>
+    {/*meta data*/}
+    <title>{member.name}</title>
+    <meta name="title" content={member.name}/>
+    <meta name="description" content={`Portfolio of ${member.name} of DataDragons team showcasing projects and info`}/>
+    <meta name="keywords" content={`computer science , software engineering ,data science ,team ,projects ,DataDragons ${member.name} 
+    , ${member.username} ,${member.roles && member.roles>0 && member.roles.join(" , ")}
+    `}/>
+    <meta name="author" content={member.name}/>
+    <meta name="robots" content="index, follow"/>
+
+
     <div className="relative bg-gray-50" ref={elementRefs.mainContainer}>
       {/* Fixed Navigation with Progress Indicator */}
       <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50">
@@ -607,6 +619,7 @@ const ProfileOverview = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
