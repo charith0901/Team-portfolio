@@ -3,7 +3,7 @@ export const teamMembers = [
   {
     name: "Sameera Athukorala",
     username: "sameera_dev",
-    roles: ["","",""],
+    roles: ["", "", ""],
     image: "/images/sameera/mem_sameera.jpeg",
     coverImage: "/images/sameera/cover_sameera.jpeg",
     bio: "",
@@ -13,11 +13,11 @@ export const teamMembers = [
       { language: "Python", level: 85 },
       { language: "React", level: 88 },
       { language: "Node.js", level: 82 },
-      { language: "TypeScript", level: 80 }
+      { language: "TypeScript", level: 80 },
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year" }
+      { college: "University (Ongoing)", year: "Expected Graduation Year" },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -31,17 +31,14 @@ export const teamMembers = [
     social: {
       github: "",
       linkedin: "",
-      email: ""
+      email: "",
     },
-    projects: [
-      {},
-      {}
-    ]
+    projects: [{}, {}],
   },
   {
     name: "Janith Sandaruwan",
     username: "janith_dev",
-    roles: ["",""],
+    roles: ["", ""],
     image: "/images/janith/mem_janith.jpeg",
     coverImage: "/images/janith/cover_janith.jpeg",
     bio: "",
@@ -51,11 +48,11 @@ export const teamMembers = [
       { language: "Python", level: 85 },
       { language: "React", level: 88 },
       { language: "Node.js", level: 82 },
-      { language: "TypeScript", level: 80 }
+      { language: "TypeScript", level: 80 },
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year" }
+      { college: "University (Ongoing)", year: "Expected Graduation Year" },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -69,31 +66,29 @@ export const teamMembers = [
     social: {
       github: "",
       linkedin: "",
-      email: ""
+      email: "",
     },
-    projects: [
-      {},
-      {}
-    ]
+    projects: [{}, {}],
   },
   {
-    name: "Gimahana Deshan",
+    name: "Gimhana Deshan",
     username: "gimhana_dev",
-    roles: ["","",""],
-    image: "/images/gimhana/mem_gimhana.jpeg",
-    coverImage: "/images/gimhana/cover_gimhana.jpeg",
-    bio: "",
+    roles: ["Full Stack Developer"],
+    image: "/images/gimhana/mem_gimhana.jpg",
+    coverImage: "/images/gimhana/cover_gimhana.jpg",
+    bio: "Computer Science undergraduate at the University of Ruhuna skilled in full-stack development and database management. Passionate about creating efficient solutions and eager to gain industry experience through an internship.",
     location: "Sri Lanka",
     skills: [
-      { language: "JavaScript", level: 90 },
-      { language: "Python", level: 85 },
-      { language: "React", level: 88 },
-      { language: "Node.js", level: 82 },
-      { language: "TypeScript", level: 80 }
+      { language: "JavaScript" },
+      { language: "Spring Boot" },
+      { language: "Python" },
+      { language: "React" },
+      { language: "Node.js" },
+      { language: "TypeScript" },
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year" }
+      { college: "University (Ongoing)", year: "Expected Graduation Year" },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -102,17 +97,81 @@ export const teamMembers = [
     availability: "Part-time",
     interests: ["Machine Learning", "Open Source", "Web Development"],
     favoriteTech: "React & Spring Boot",
-    phone: "+94 XXX XXX XXXX",
+    phone: "+94 71 395 0532",
     awards: [],
     social: {
-      github: "",
-      linkedin: "",
-      email: ""
+      github: "https://github.com/gimhanadeshan",
+      linkedin: "https://linkedin.com/in/gimhana-deshan-55486025a",
+      email: "gimhanadeshan00@gmail.com",
     },
     projects: [
-      {},
-      {}
-    ]
+      {
+        title: "Wildlife HMS",
+        description:
+          "Designed a desktop application for wildlife habitat management and monitoring",
+        image: "/images/gimhana/wildlife_hms.png",
+        tags: [
+          "JavaFX",
+          "MySQL",
+          "MaterialFX",
+          "JasperReports",
+          "CSS",
+          "IntelliJ IDEA",
+          "SceneBuilder",
+        ],
+        link: {
+          github: "https://github.com/gimhanadeshan/Group-Project-CSC2123",
+          content: "",
+        },
+        features: [
+          "User Management",
+          "Habitat Data Management",
+          "Wildlife Monitoring",
+          "Reports Generation",
+          "Data Visualization",
+          "Responsive UI",
+        ],
+        languages: [
+          "JavaFX",
+          "MySQL",
+          "MaterialFX",
+          "JasperReports",
+          "CSS",
+          "IntelliJ IDEA",
+          "SceneBuilder",
+        ],
+      },
+
+      {
+        title: "Ruhuna ScheduleEase",
+        description:
+          "Manage your academic schedule efficiently with our user-friendly platform. Create, update, and view your schedules seamlessly.",
+        image: "/images/projects/scheduleEase/welcome_background.jpg",
+        tags: ["Laravel", "Inertia.js", "Node.js", "React", "MySQL"],
+        link: {
+          github: "https://github.com/gimhanadeshan/Group-Project-CSC2233",
+          content: "https://www.scheduleease.live",
+        },
+        features: [
+          "User Account Management",
+          "Semester Initialization",
+          "Course Registration",
+          "Timetable Generation",
+          "Lecture Scheduling",
+          "Personalized Dashboards",
+          "Automated Notifications",
+        ],
+        languages: [
+          "Node.js",
+          "Mysql",
+          "Laravel",
+          "React",
+          "Inertia.js",
+          "Tailwind CSS",
+          "vs code",
+        ],
+      },
+    ],
   },
   {
     name: "Charith Jayasankha",
@@ -127,11 +186,11 @@ export const teamMembers = [
       { language: "Python", level: 40 },
       { language: "java", level: 70 },
       { language: "C#", level: 50 },
-      { language: "PHP", level: 80 }
+      { language: "PHP", level: 80 },
     ],
-    experienceLevel:"" ,
+    experienceLevel: "",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year" }
+      { college: "University (Ongoing)", year: "Expected Graduation Year" },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -145,7 +204,7 @@ export const teamMembers = [
     social: {
       github: "https://github.com/charith0901",
       linkedin: "https://linkedin.com/in/charith_dev",
-      email: "charith@example.com"
+      email: "charith@example.com",
     },
     projects: [
       {},
@@ -171,12 +230,13 @@ export const teamMembers = [
       // },
       {
         title: "Capsulory",
-        description: "A digital time capsule platform built using Next.js and MongoDB.",
+        description:
+          "A digital time capsule platform built using Next.js and MongoDB.",
         image: "/images/charith/capsulory.png",
         tags: ["Next.js", "MongoDB"],
         link: {
           github: "https://github.com/charith0901/Capsulory",
-          content: "https://capsulory.vercel.app/"
+          content: "https://capsulory.vercel.app/",
         },
         status: "In Development",
         creation_date: "2025-03-05",
@@ -184,9 +244,9 @@ export const teamMembers = [
           "Time-locked digital messages",
           "Media file uploads",
           "User authentication",
-          "Secure storage with MongoDB"
+          "Secure storage with MongoDB",
         ],
-        languages: ["Next js", "MongoDB", "NextAuth.js", "Tailwind CSS"]
+        languages: ["Next js", "MongoDB", "NextAuth.js", "Tailwind CSS"],
       },
       {
         title: "TODOTO",
@@ -195,7 +255,7 @@ export const teamMembers = [
         tags: ["Django", "SQLite"],
         link: {
           github: "https://github.com/charith0901/TODOTO",
-          content: " "
+          content: " ",
         },
         status: "Completed",
         creation_date: "2025-03-07",
@@ -203,9 +263,9 @@ export const teamMembers = [
           "Task creation and management",
           "Admin Dashboard",
           "User authentication",
-          "Simple UI for easy navigation"
+          "Simple UI for easy navigation",
         ],
-        languages: ["Django", "Python", "HTML", "Tailwind CSS"]
+        languages: ["Django", "Python", "HTML", "Tailwind CSS"],
       },
       {
         title: "URL_SHORTNER",
@@ -214,25 +274,22 @@ export const teamMembers = [
         tags: ["Ruby on Rails", "sqlite3"],
         link: {
           github: "https://github.com/charith0901/URL_SHORTNER",
-          content: " "
+          content: " ",
         },
         status: "Completed",
         creation_date: "2025-03-09",
-        features: [
-          "Shorten URLs",
-          "Copy short URLs",
-          "Url Redirection",
-        ],
+        features: ["Shorten URLs", "Copy short URLs", "Url Redirection"],
         languages: ["Ruby on Rails", "Ruby", "HTML", "Tailwind CSS"],
       },
       {
         title: "Weather-Explorer",
-        description: "A weather application built using React, Node.js,Express and OpenWeather Api.",
+        description:
+          "A weather application built using React, Node.js,Express and OpenWeather Api.",
         image: "/images/charith/weather_explorer.png",
-        tags: ["React", "Node.js", "Express","OpenWeather Api"],
+        tags: ["React", "Node.js", "Express", "OpenWeather Api"],
         link: {
           github: "https://github.com/charith0901/Weather-Explorer",
-          content: "https://weather-explorer-bay.vercel.app/"
+          content: "https://weather-explorer-bay.vercel.app/",
         },
         status: "Completed",
         creation_date: "2025-03-11",
@@ -240,28 +297,26 @@ export const teamMembers = [
           "Real-time weather updates",
           "Location-based weather data",
           "User-friendly interface",
-          "Weather forecast"
+          "Weather forecast",
         ],
-        languages: ["React", "Node.js", "Express","OpenWeather Api"]
-
-      }
-      
-    ]
-  }
+        languages: ["React", "Node.js", "Express", "OpenWeather Api"],
+      },
+    ],
+  },
 ];
-
 
 // src/data/projectData.js
 export const projects = [
   {},
   {
     title: "Ruhuna ScheduleEase",
-    description: "Manage your academic schedule efficiently with our user-friendly platform. Create, update, and view your schedules seamlessly.",
+    description:
+      "Manage your academic schedule efficiently with our user-friendly platform. Create, update, and view your schedules seamlessly.",
     image: "/images/projects/scheduleEase/welcome_background.jpg",
-    tags: ["Laravel","Inertia.js","Node.js","React", "MySQL"],
+    tags: ["Laravel", "Inertia.js", "Node.js", "React", "MySQL"],
     link: {
       github: "https://github.com/gimhanadeshan/Group-Project-CSC2233",
-      content: "https://www.scheduleease.live"
+      content: "https://www.scheduleease.live",
     },
     features: [
       "User Account Management",
@@ -270,45 +325,54 @@ export const projects = [
       "Timetable Generation",
       "Lecture Scheduling",
       "Personalized Dashboards",
-      "Automated Notifications"
+      "Automated Notifications",
     ],
-    languages: ["Node.js", "Mysql","Laravel",,"React","Inertia.js","Tailwind CSS","vs code"]
+    languages: [
+      "Node.js",
+      "Mysql",
+      "Laravel",
+      "React",
+      "Inertia.js",
+      "Tailwind CSS",
+      "vs code",
+    ],
   },
   {
     title: "DataDragons Website",
-    description: "Community website for showcasing projects, team members, and tech stacks.",
+    description:
+      "Community website for showcasing projects, team members, and tech stacks.",
     image: "/logo.png",
-    tags: ["React", "Vite", "Tailwind CSS","jenkins"],
+    tags: ["React", "Vite", "Tailwind CSS", "jenkins"],
     link: {
       github: "https://github.com/charith0901/Team-portfolio",
-      content: "https://datadragons.live"
+      content: "https://datadragons.live",
     },
     features: [
       "Members Overview",
       "Project Showcase",
       "Tech Stack Details",
       "Dynamic Routing",
-      "Responsive Design"
+      "Responsive Design",
     ],
-    languages: ["React", "Vite", "Tailwind CSS"]
+    languages: ["React", "Vite", "Tailwind CSS"],
   },
   {
     title: "LabNexus: Lab Management System",
-    description: "LabNexus is a desktop application built to streamline the management of computer labs in the Department of Computer Science at the University of Ruhuna. The application facilitates lab scheduling, equipment monitoring, software management, and user role management, ensuring efficient use of lab resources.",
+    description:
+      "LabNexus is a desktop application built to streamline the management of computer labs in the Department of Computer Science at the University of Ruhuna. The application facilitates lab scheduling, equipment monitoring, software management, and user role management, ensuring efficient use of lab resources.",
     image: "/api/placeholder/400/300",
-    tags: ["C#", ".Net", "winforms", "MySQL","Design Patterns"],
+    tags: ["C#", ".Net", "winforms", "MySQL", "Design Patterns"],
     link: {
       github: "https://github.com/gimhanadeshan/Group-Project-CSC2213",
-      content: ""
+      content: "",
     },
     features: [
       "Lab Scheduling",
       "Equipment Management",
       "Software Management",
       "User Management",
-      "Maintenance Logging"
+      "Maintenance Logging",
     ],
-    languages: ["C#", ".Net", "winforms", "MySQL"]
+    languages: ["C#", ".Net", "winforms", "MySQL"],
   },
 ];
-
