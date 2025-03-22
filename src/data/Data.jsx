@@ -17,7 +17,7 @@ export const teamMembers = [
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year" },
+      { college: "University (Ongoing)", year: "Expected Graduation Year:2026" },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -76,6 +76,7 @@ export const teamMembers = [
     roles: ["Full Stack Developer"],
     image: "/images/gimhana/mem_gimhana.jpg",
     coverImage: "/images/gimhana/cover_gimhana.jpg",
+    resume : "",
     bio: "Computer Science undergraduate at the University of Ruhuna skilled in full-stack development and database management. Passionate about creating efficient solutions and eager to gain industry experience through an internship.",
     location: "Sri Lanka",
     skills: [
@@ -88,7 +89,7 @@ export const teamMembers = [
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year" },
+      { college: "University (Ongoing)", year: "Expected Graduation Year:2026" },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -179,6 +180,7 @@ export const teamMembers = [
     roles: ["Full Stack Developer"],
     image: "/images/charith/mem_charith.jpeg",
     coverImage: "/images/charith/cover_charith.jpg",
+    resume: "/documents/charith/resume_charith.pdf",
     bio: "Undergraduate Computer Science student passionate about software development, web applications, and emerging technologies.",
     location: "Sri Lanka",
     skills: [
@@ -199,15 +201,14 @@ export const teamMembers = [
     availability: "Part-time",
     interests: ["Machine Learning", "Open Source", "Web Development"],
     favoriteTech: "React & Spring Boot",
-    phone: "+94 XXX XXX XXXX",
+    phone: "+94 769823545",
     awards: [],
     social: {
       github: "https://github.com/charith0901",
       linkedin: "https://linkedin.com/in/charith_dev",
-      email: "charith@example.com",
+      email: "charithjayasankha@gmail.com",
     },
     projects: [
-      {},
       // {
       //   title: "TouriPearl",
       //   description: "A tourism platform for booking guides with real-time availability tracking, payments, and reservations.",
@@ -233,6 +234,7 @@ export const teamMembers = [
         description:
           "A digital time capsule platform built using Next.js and MongoDB.",
         image: "/images/charith/capsulory.png",
+        demostrationImages:["/images/charith/capsulory.png","/images/charith/capsulory.png"],
         tags: ["Next.js", "MongoDB"],
         link: {
           github: "https://github.com/charith0901/Capsulory",
@@ -307,12 +309,12 @@ export const teamMembers = [
 
 // src/data/projectData.js
 export const projects = [
-  {},
   {
     title: "Ruhuna ScheduleEase",
     description:
       "Manage your academic schedule efficiently with our user-friendly platform. Create, update, and view your schedules seamlessly.",
     image: "/images/projects/scheduleEase/welcome_background.jpg",
+    demostrationImages:["",""],
     tags: ["Laravel", "Inertia.js", "Node.js", "React", "MySQL"],
     link: {
       github: "https://github.com/gimhanadeshan/Group-Project-CSC2233",
