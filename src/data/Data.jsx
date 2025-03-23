@@ -17,7 +17,10 @@ export const teamMembers = [
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year:2026" },
+      {
+        college: "University (Ongoing)",
+        year: "Expected Graduation Year:2026",
+      },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -76,12 +79,13 @@ export const teamMembers = [
     roles: ["Full Stack Developer"],
     image: "/images/gimhana/mem_gimhana.jpg",
     coverImage: "/images/gimhana/cover_gimhana.jpg",
-    resume : "",
+    resume: "/documents/gimhana/resume_gimhana.pdf",
     bio: "Computer Science undergraduate at the University of Ruhuna skilled in full-stack development and database management. Passionate about creating efficient solutions and eager to gain industry experience through an internship.",
     location: "Sri Lanka",
     skills: [
       { language: "JavaScript" },
       { language: "Spring Boot" },
+      { language: "Laravel" },
       { language: "Python" },
       { language: "React" },
       { language: "Node.js" },
@@ -89,7 +93,10 @@ export const teamMembers = [
     ],
     experienceLevel: "Intermediate",
     education: [
-      { college: "University (Ongoing)", year: "Expected Graduation Year:2026" },
+      {
+        college: "University (Ongoing)",
+        year: "Expected Graduation Year:2026",
+      },
     ],
     certifications: [],
     yearsOfExperience: 0,
@@ -110,7 +117,13 @@ export const teamMembers = [
         title: "Wildlife HMS",
         description:
           "Designed a desktop application for wildlife habitat management and monitoring",
-        image: "/images/gimhana/wildlife_hms.png",
+        image: "/images/gimhana/wildlife_hms/wildlife_hms.png",
+        demostrationImages: [
+          "/images/gimhana/wildlife_hms/img1.png",
+          "/images/gimhana/wildlife_hms/img2.png",
+          "/images/gimhana/wildlife_hms/img3.png",
+          "/images/gimhana/wildlife_hms/img4.png",
+        ],
         tags: [
           "JavaFX",
           "MySQL",
@@ -140,36 +153,6 @@ export const teamMembers = [
           "CSS",
           "IntelliJ IDEA",
           "SceneBuilder",
-        ],
-      },
-
-      {
-        title: "Ruhuna ScheduleEase",
-        description:
-          "Manage your academic schedule efficiently with our user-friendly platform. Create, update, and view your schedules seamlessly.",
-        image: "/images/projects/scheduleEase/welcome_background.jpg",
-        tags: ["Laravel", "Inertia.js", "Node.js", "React", "MySQL"],
-        link: {
-          github: "https://github.com/gimhanadeshan/Group-Project-CSC2233",
-          content: "https://www.scheduleease.live",
-        },
-        features: [
-          "User Account Management",
-          "Semester Initialization",
-          "Course Registration",
-          "Timetable Generation",
-          "Lecture Scheduling",
-          "Personalized Dashboards",
-          "Automated Notifications",
-        ],
-        languages: [
-          "Node.js",
-          "Mysql",
-          "Laravel",
-          "React",
-          "Inertia.js",
-          "Tailwind CSS",
-          "vs code",
         ],
       },
     ],
@@ -234,7 +217,10 @@ export const teamMembers = [
         description:
           "A digital time capsule platform built using Next.js and MongoDB.",
         image: "/images/charith/capsulory.png",
-        demostrationImages:["/images/charith/capsulory.png","/images/charith/capsulory.png"],
+        demostrationImages: [
+          "/images/charith/capsulory.png",
+          "/images/charith/capsulory.png",
+        ],
         tags: ["Next.js", "MongoDB"],
         link: {
           github: "https://github.com/charith0901/Capsulory",
@@ -314,7 +300,7 @@ export const projects = [
     description:
       "Manage your academic schedule efficiently with our user-friendly platform. Create, update, and view your schedules seamlessly.",
     image: "/images/projects/scheduleEase/welcome_background.jpg",
-    demostrationImages:["",""],
+    demostrationImages: ["", ""],
     tags: ["Laravel", "Inertia.js", "Node.js", "React", "MySQL"],
     link: {
       github: "https://github.com/gimhanadeshan/Group-Project-CSC2233",
