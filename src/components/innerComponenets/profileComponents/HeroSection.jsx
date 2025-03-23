@@ -62,7 +62,7 @@ const HeroSection = ({ member, elementRefs }) => {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <button
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center gap-2 w-full sm:w-auto"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 flex items-center gap-2 sm:w-auto"
                 onClick={() => {
                   const link = document.createElement("a");
                   link.href = member.resume;
