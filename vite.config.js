@@ -17,6 +17,9 @@ export default defineConfig({
           '/member/gimhana_dev',
           '/member/sameera_dev',
           '/member/janith_dev',
+          '/member/oshan_dev',
+          '/member/thimathi_dev',
+          '/member/asanka_dev',
           '/project/Ruhuna ScheduleEase'
         ],
       generateRobotsTxt: true, // This generates robots.txt
