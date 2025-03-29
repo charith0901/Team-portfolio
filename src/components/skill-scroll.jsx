@@ -1,7 +1,8 @@
-import { useGSAP } from "@gsap/react"; 
-import gsap from "gsap"; 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
+import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,42 +13,42 @@ export default function SkillShowcaseParallax() {
   const introRef = useRef(null);
   const skillsRef = useRef(null);
   const skillItemsRef = useRef([]);
-  
+
   const [activeSkill, setActiveSkill] = useState(null);
-  
+
   // Expanded skills data with descriptions and icons
   const programmingSkills = [
-    { 
-      language: "JavaScript", 
-      level: 90, 
+    {
+      language: "JavaScript",
+      level: 90,
       description: "Building interactive web applications and dynamic user interfaces.",
       color: "from-yellow-400 to-yellow-500",
       textColor: "text-yellow-400"
     },
-    { 
-      language: "Python", 
-      level: 85, 
+    {
+      language: "Python",
+      level: 85,
       description: "Data analysis, backend development, and automation scripts.",
       color: "from-blue-400 to-blue-500",
       textColor: "text-blue-400"
     },
-    { 
-      language: "React", 
-      level: 88, 
+    {
+      language: "React",
+      level: 88,
       description: "Creating responsive, component-based frontend applications.",
       color: "from-cyan-400 to-cyan-500",
       textColor: "text-cyan-400"
     },
-    { 
-      language: "Node.js", 
-      level: 82, 
+    {
+      language: "Node.js",
+      level: 82,
       description: "Developing scalable server-side applications and APIs.",
       color: "from-green-400 to-green-500",
       textColor: "text-green-400"
     },
-    { 
-      language: "TypeScript", 
-      level: 80, 
+    {
+      language: "TypeScript",
+      level: 80,
       description: "Type-safe development for large-scale applications.",
       color: "from-blue-500 to-blue-600",
       textColor: "text-blue-500"
@@ -68,7 +69,7 @@ export default function SkillShowcaseParallax() {
         invalidateOnRefresh: true,
       }
     });
-    
+
     // Animate hero text
     heroTimeline.to(heroTextRef.current, {
       opacity: 0,
@@ -76,14 +77,14 @@ export default function SkillShowcaseParallax() {
       scale: 0.8,
       duration: 1
     });
-    
+
     // Hero background parallax
     heroTimeline.to(".hero-image", {
       y: 200,
       scale: 1.1,
       duration: 1
     }, 0);
-    
+
     // Intro animation with standard animations instead of split text
     const introTimeline = gsap.timeline({
       scrollTrigger: {
@@ -94,7 +95,7 @@ export default function SkillShowcaseParallax() {
         refreshPriority: 2,
       }
     });
-    
+
     // Simple animation for intro title
     introTimeline.from(".intro-title", {
       opacity: 0,
@@ -102,7 +103,7 @@ export default function SkillShowcaseParallax() {
       duration: 0.8,
       ease: "back.out(1.7)"
     });
-    
+
     // Simple animation for intro paragraphs
     introTimeline.from(".intro-para", {
       opacity: 0,
@@ -111,7 +112,7 @@ export default function SkillShowcaseParallax() {
       duration: 0.6,
       ease: "power2.out"
     }, "-=0.4");
-    
+
     // Skills section animations - improved sync
     const skillsTimeline = gsap.timeline({
       scrollTrigger: {
@@ -123,7 +124,7 @@ export default function SkillShowcaseParallax() {
         refreshPriority: 2,
       }
     });
-    
+
     // Animate skills title
     skillsTimeline.from(".skills-title", {
       opacity: 0,
@@ -131,8 +132,8 @@ export default function SkillShowcaseParallax() {
       duration: 0.8,
       ease: "power2.out"
     });
-    
-    
+
+
     // Progress bar animations
     skillsTimeline.from(".skill-progress", {
       width: 0,
@@ -140,7 +141,7 @@ export default function SkillShowcaseParallax() {
       duration: 1.2,
       ease: "power2.inOut"
     }, "-=0.6");
-    
+
     // Scroll cue animation in hero section
     gsap.to(".scroll-cue", {
       y: 15,
@@ -150,13 +151,13 @@ export default function SkillShowcaseParallax() {
       duration: 1.2,
       ease: "power1.inOut"
     });
-    
+
   }, []);
 
   // Handle hover interactions for skill cards
   const handleSkillHover = (index) => {
     setActiveSkill(index);
-    
+
     gsap.to(`.skill-card:nth-child(${index + 1})`, {
       scale: 1.05,
       boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
@@ -164,10 +165,10 @@ export default function SkillShowcaseParallax() {
       ease: "power2.out"
     });
   };
-  
+
   const handleSkillLeave = (index) => {
     setActiveSkill(null);
-    
+
     gsap.to(`.skill-card:nth-child(${index + 1})`, {
       scale: 1,
       boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
@@ -186,7 +187,7 @@ export default function SkillShowcaseParallax() {
           className="hero-image absolute inset-0 w-full h-full object-cover opacity-40 scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 z-0"></div>
-        
+
         <div ref={heroTextRef} className="relative z-10 text-center px-4 max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
             Crafting Digital Experiences
@@ -209,24 +210,24 @@ export default function SkillShowcaseParallax() {
         className="min-h-screen flex items-center justify-center p-8 relative"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 z-0"></div>
-        
+
         {/* Floating particles/orbs background effect */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(15)].map((_, i) => (
-            <div key={i} 
+            <div key={i}
               className={`absolute rounded-full opacity-20 bg-blue-${300 + ((i % 3) * 100)}`}
               style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            width: `${Math.random() * 100 + 50}px`,
-            height: `${Math.random() * 100 + 50}px`,
-            animation: `float ${2.5 + Math.random() * 5}s ease-in-out infinite`,
-            animationDelay: `${Math.random() * 2.5}s`
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                width: `${Math.random() * 100 + 50}px`,
+                height: `${Math.random() * 100 + 50}px`,
+                animation: `float ${2.5 + Math.random() * 5}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2.5}s`
               }}
             ></div>
           ))}
         </div>
-        
+
         <div className="max-w-7xl text-center space-y-8 relative z-10 backdrop-blur-sm bg-gray-800/30 p-10 rounded-xl border border-gray-700">
           <h2 className="intro-title text-4xl md:text-5xl font-bold text-blue-400">
             Who We Are
@@ -249,11 +250,12 @@ export default function SkillShowcaseParallax() {
         className="min-h-screen flex flex-col items-center justify-center p-8 relative"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 z-0"></div>
-        
-        <h2 className="skills-title text-4xl md:text-5xl font-bold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 relative z-10">
-          Our Expertise
-        </h2>
-        
+
+        <AnimatedTitle
+          title={"Our Exper<b>tis</b>e"}
+          containerClass={"skills-title  text-gradient-to-r from-blue-400 to-purple-500 relative z-10"}
+        />
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full relative z-10">
           {programmingSkills.map((skill, index) => (
             <div
@@ -264,7 +266,7 @@ export default function SkillShowcaseParallax() {
               ref={(el) => (skillItemsRef.current[index] = el)}
             >
               <div className={`h-2 bg-gradient-to-r ${skill.color}`}></div>
-              
+
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className={`text-2xl text-gray-50 font-bold ${skill.textColor}`}>{skill.language}</h3>
@@ -272,18 +274,18 @@ export default function SkillShowcaseParallax() {
                     {skill.level}%
                   </span>
                 </div>
-                
+
                 <div className="w-full bg-gray-700 rounded-full h-3 mb-6">
                   <div
                     className={`skill-progress h-3 rounded-full bg-gradient-to-r ${skill.color}`}
                     style={{ width: `${skill.level}%` }}
                   />
                 </div>
-                
+
                 <p className="text-gray-300 mb-4">
                   {skill.description}
                 </p>
-                
+
                 <div className={`flex items-center justify-between mt-4 pt-4 border-t border-gray-700 ${activeSkill === index ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}>
                   <span className="text-sm text-gray-400">Experience level</span>
                   <div className="flex">
@@ -298,7 +300,7 @@ export default function SkillShowcaseParallax() {
             </div>
           ))}
         </div>
-        
+
         <div className="w-full max-w-6xl mt-16 p-8 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 relative z-10">
           <h3 className="text-2xl font-bold mb-4 text-blue-400">Ready to collaborate?</h3>
           <p className="text-lg text-gray-300 mb-6">Our team is available for projects and collaborations. Let's create something amazing together.</p>
@@ -307,7 +309,7 @@ export default function SkillShowcaseParallax() {
           </button>
         </div>
       </div>
-      
+
       {/* Add custom CSS for the floating animation */}
       <style>{`
         @keyframes float {

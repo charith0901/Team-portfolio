@@ -78,7 +78,7 @@ export const teamMembers = [
   {
     name: "Gimhana Deshan",
     username: "gimhana_dev",
-    roles: ["Full Stack Developer"],
+    roles: ["Full Stack Developer","Backend Developer", "Frontend Developer"],
     image: "/images/gimhana/mem_gimhana.jpg",
     coverImage: "/images/gimhana/cover_gimhana.jpg",
     resume: "/documents/gimhana/resume_gimhana.pdf",
@@ -162,7 +162,7 @@ export const teamMembers = [
   {
     name: "Charith Jayasankha",
     username: "charith_dev",
-    roles: ["Full Stack Developer"],
+    roles: ["Full Stack Developer","Backend Developer","Frontend Developer"],
     image: "/images/charith/mem_charith.jpeg",
     coverImage: "/images/charith/cover_charith.jpg",
     resume: "/documents/charith/resume_charith.pdf",

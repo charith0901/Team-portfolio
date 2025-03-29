@@ -19,6 +19,7 @@ import HeroSection from "./profileComponents/HeroSection";
 import AboutSection from "./profileComponents/AboutSection";
 import ProfessionalSection from "./profileComponents/ProfessionalSection";
 import SkillSection from "./profileComponents/SkillSection";
+import AnimatedTitle from "../AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,9 +189,9 @@ const ProfileOverview = () => {
 
       parallaxSections.forEach((sectionId) => {
         ScrollTrigger.create({
-          trigger: sectionRefs[sectionId].current,
-          start: "top bottom",
-          end: "bottom top",
+          trigger: sectionRefs[sectionId].current.querySelector(".bg-white"),
+          start: "top center",
+          end: "top center",
           onUpdate: (self) => {
             const progress = self.progress;
             gsap.to(sectionRefs[sectionId].current.querySelector(".bg-white"), {
@@ -201,44 +202,6 @@ const ProfileOverview = () => {
           },
         });
       });
-
-      // Add scroll-triggered animations for section titles
-      Object.entries(sectionRefs)
-        .slice(0, 3)
-        .forEach(([id, ref]) => {
-          gsap.fromTo(
-            ref.current.querySelector("h2"),
-            { opacity: 0, y: 20 },
-            {
-              scrollTrigger: {
-                trigger: ref.current,
-                start: "top 80%",
-                toggleActions: "play none none reverse",
-              },
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-            }
-          );
-        });
-
-      // Projects section header animation
-      gsap.fromTo(
-        "#projects-header",
-        { opacity: 0, y: 30 },
-        {
-          scrollTrigger: {
-            trigger: sectionRefs.projects.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-        }
-      );
     });
 
     // Cleanup function
@@ -279,16 +242,16 @@ const ProfileOverview = () => {
         />
 
         {/* Hero Section - Combined Banner and Cover Image */}
-        <HeroSection 
-        member={member}
-        elementRefs={elementRefs}
+        <HeroSection
+          member={member}
+          elementRefs={elementRefs}
         />
 
         {/* About Section */}
         <AboutSection
-        member={member}
-        elementRefs={elementRefs}
-        sectionRefs={sectionRefs}
+          member={member}
+          elementRefs={elementRefs}
+          sectionRefs={sectionRefs}
         />
 
         {/* Professional Details Section */}
@@ -311,15 +274,13 @@ const ProfileOverview = () => {
           className="min-h-screen w-full relative py-12"
         >
           <div className="w-full h-full">
-            <h1
-              id="projects-header"
-              className="text-4xl font-bold text-white text-center mb-6"
-            >
-              Projects
-            </h1>
+            <AnimatedTitle
+              title=" Pro<b>j</b>ets"
+              containerClass="mt-5 !text-black text-center"
+            />
 
             {/* Scroll Down Text */}
-            <div className="text-center text-gray-300 text-sm mb-8 flex items-center justify-center">
+            <div className="text-center font-zentry font-bold text-gray-500 text-sm mb-8 flex items-center justify-center">
               <span>Scroll down to explore</span>
             </div>
 
