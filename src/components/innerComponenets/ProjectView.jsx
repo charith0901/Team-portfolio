@@ -4,8 +4,9 @@ import { teamMembers, projects } from "../../data/Data";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Github, ExternalLink, ArrowLeft, Code, Layers, Cpu } from "lucide-react";
+import { Github, ExternalLink, ArrowLeft, Code, Layers, Cpu, ArrowDown } from "lucide-react";
 import ParallaxCarousel from "./projectComponents/ParallaxCarousel";
+import AnimatedTitle from "../AnimatedTitle";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -114,7 +115,7 @@ const ProjectView = () => {
           </div>
 
           <div className="max-w-4xl mx-auto px-4 relative z-10">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200 drop-shadow-lg">
+            <h1 className="font-circular-web uppercase text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200 drop-shadow-lg">
               {project.title}
             </h1>
             <p className="text-xl max-w-2xl mx-auto leading-relaxed text-blue-100 bg-blue-900/30 p-6 rounded-xl shadow-lg">
@@ -127,7 +128,7 @@ const ProjectView = () => {
                 href={project.link.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center px-8 py-4 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors shadow-lg hover:shadow-xl border border-gray-700 hover:-translate-y-1 transition-transform"
+                className="group flex items-center justify-center px-8 py-4 bg-gray-800 text-white rounded-lg hover:bg-gray-900  shadow-lg hover:shadow-xl border border-gray-700 hover:-translate-y-1 transition-transform"
               >
                 <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                 GitHub Repository
@@ -136,7 +137,7 @@ const ProjectView = () => {
                 href={project.link.content}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-500 hover:to-indigo-500 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform"
+                className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-500 hover:to-indigo-500 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-transform"
               >
                 <ExternalLink className="mr-2 h-5 w-5 group-hover:translate-x-1 group-hover:translate-y-[-1px] transition-transform" />
                 Live Demo
@@ -151,25 +152,25 @@ const ProjectView = () => {
                   window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
                 }
               }} className="w-10 h-10 mx-auto bg-white/10 rounded-full flex items-center justify-center">
-                <ArrowLeft className="transform rotate-270 text-blue-200" />
+                <ArrowDown className="transform  text-blue-200" />
               </button>
             </div>
           </div>
         </div>
         <section id="demostration">
           {project.demostrationImages && (
-          <div
-            className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-indigo-800 to-blue-700 p-6 md:p-12 text-white"
-          >
-            <div className="max-w-4xl w-full text-center">
+            <div
+              className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-indigo-800 to-blue-700 p-6 md:p-12 text-white"
+            >
+              <div className="max-w-4xl w-full text-center">
 
-              <h2 className="text-3xl font-bold mb-8 inline-flex items-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-                <Cpu className="mr-3 text-blue-300" />
-                Project Demostration
-              </h2>
-              <ParallaxCarousel demostrationImages={project.demostrationImages} />
+                <AnimatedTitle
+                  title={"Pr<b>o</b>ject Demo<b>n</b>stration"}
+                  containerClass="mt-5 !text-black text-center"
+                />
+                <ParallaxCarousel demostrationImages={project.demostrationImages} />
+              </div>
             </div>
-          </div>
           )}
         </section>
 
@@ -180,15 +181,15 @@ const ProjectView = () => {
         >
           <div className="max-w-4xl w-full">
             <div className="mt-8 text-center">
-              <h2 className="text-3xl font-bold mt-6 inline-flex items-center bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600">
-                <Layers className="mr-3 text-blue-600" />
-                Key Features
-              </h2>
+              <AnimatedTitle
+                title="Pr<b>o</b>ject Det<b>a</b>ils"
+                containerClass="mt-5 !text-black text-center"
+              />
               <ul className="mt-8 space-y-4 max-w-2xl mx-auto">
                 {project.features?.map((feature, index) => (
                   <li
                     key={index}
-                    className="text-gray-700 bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow flex items-start hover:-translate-y-1 transition-transform group"
+                    className="text-gray-700 bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg shadow-md hover:shadow-lg  flex items-start hover:-translate-y-1 transition-transform group"
                   >
                     <Code className="mr-3 text-blue-600 flex-shrink-0 mt-1 group-hover:rotate-12 transition-transform" />
                     <span>{feature}</span>
@@ -205,10 +206,10 @@ const ProjectView = () => {
           className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-indigo-800 to-blue-700 p-6 md:p-12 text-white"
         >
           <div className="max-w-4xl w-full text-center">
-            <h2 className="text-3xl font-bold inline-flex items-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-              <Cpu className="mr-3 text-blue-300" />
-              Technologies Used
-            </h2>
+            <AnimatedTitle
+              title="Tec<b>h</>nologies <b>U</b>sed"
+              containerClass="mt-5 !text-black text-center"
+            />
 
             <div className="flex flex-wrap justify-center gap-3 mt-8 tech-badge">
               {project.languages?.map((lang, index) => (
