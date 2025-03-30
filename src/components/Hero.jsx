@@ -16,7 +16,7 @@ const Hero = ({ member }) => {
 
   useGSAP(() => {
     gsap.set("#img-frame", {
-      clipPath: "polygon(10% 0, 80% 0, 90% 80%, 0 95%)",
+      clipPath: "polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)",
       borderRadius: "0% 0% 53% 10%",
     });
     gsap.from("#img-frame", {
@@ -33,7 +33,7 @@ const Hero = ({ member }) => {
   });
 
   return (
-    <div className="relative h-dvh w-screen overflow-x-hidden">
+    <div className="relative h-dvh w-screen overflow-x-hidden  bg-[url('/images/constellation.png')] bg-cover bg-repeat bg-center bg-fixed">
       <div
         id="img-frame"
         className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
@@ -102,6 +102,7 @@ const Hero = ({ member }) => {
             )}
           </span>
         </h1>
+
       </div>
       <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">
         {lastName.split('').map((char, index) =>

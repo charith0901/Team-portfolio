@@ -1,15 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import {
-  Code,
-  User,
-  Briefcase,
-  Mail,
-  Linkedin,
-  Github,
-  GraduationCap,
-} from "lucide-react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { teamMembers, projects } from "../../data/Data";
 import ProjectShowcase from "../project-showcase";
@@ -46,18 +38,10 @@ const ProfileOverview = () => {
     mainContainer: useRef(null),
   };
 
-  // Section configuration for reusability
-  const sections = [
-    { id: "about", icon: User, label: "About section" },
-    { id: "details", icon: Briefcase, label: "Details section" },
-    { id: "skills", icon: Code, label: "Skills section" },
-    { id: "projects", icon: GraduationCap, label: "Projects section" },
-  ];
-
   // Handle scroll and set active section
   useEffect(() => {
     if (!member) return;
-
+    window.scrollTo(0, 0);
     const sectionEntries = Object.entries(sectionRefs).map(([id, ref]) => ({
       id,
       ref,
@@ -84,50 +68,12 @@ const ProfileOverview = () => {
   }, [member]);
 
   // Scroll to section - simplified with sectionRefs object
-  const scrollToSection = (sectionId) => {
-    if (sectionRefs[sectionId]?.current) {
-      window.scrollTo({
-        top: sectionRefs[sectionId].current.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
 
-  // Enhanced animation setup with ScrollTrigger
+
   useEffect(() => {
     if (!member) return;
-
-    // Reset scroll position when profile loads
-    window.scrollTo(0, 0);
-
     // Create a context to contain all our ScrollTrigger animations
     const ctx = gsap.context(() => {
-      // Header section animation
-      gsap.fromTo(
-        elementRefs.header.current,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: 0.2,
-          ease: "power2.out",
-        }
-      );
-
-      // Details section with staggered children
-      gsap.fromTo(
-        elementRefs.details.current.children,
-        { opacity: 0, x: -10 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          delay: 0.4,
-          ease: "power1.out",
-        }
-      );
 
       // Skills cards animation with ScrollTrigger
       gsap.fromTo(
@@ -148,65 +94,42 @@ const ProfileOverview = () => {
           ease: "back.out(1.5)",
         }
       );
-
-      // Education items with ScrollTrigger
-      if (elementRefs.education.current) {
-        gsap.fromTo(
-          elementRefs.education.current.children,
-          { opacity: 0, y: 30 },
-          {
-            scrollTrigger: {
-              trigger: elementRefs.education.current,
-              start: "top 85%",
-              end: "bottom 70%",
-              toggleActions: "play none none reverse",
-            },
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-            ease: "power2.out",
-          }
-        );
-      }
-
-      // Social links animation
-      gsap.fromTo(
-        elementRefs.social.current.children,
-        { opacity: 0, y: 15 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          stagger: 0.1,
-          delay: 0.6,
-          ease: "power2.out",
-        }
-      );
-
-      // Parallax effects for sections
-      const parallaxSections = ["about", "details"];
-
-      parallaxSections.forEach((sectionId) => {
-        ScrollTrigger.create({
-          trigger: sectionRefs[sectionId].current.querySelector(".bg-white"),
-          start: "top center",
-          end: "top center",
-          onUpdate: (self) => {
-            const progress = self.progress;
-            gsap.to(sectionRefs[sectionId].current.querySelector(".bg-white"), {
-              y: progress * -40,
-              duration: 0.1,
-              ease: "none",
-            });
-          },
-        });
-      });
     });
 
     // Cleanup function
     return () => ctx.revert();
   }, [member]);
+      useGSAP(() => {
+          gsap.set(".frame-left", {
+            clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+          });
+          gsap.from(".frame-left", {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "power1.inOut",
+            scrollTrigger: {
+              trigger: ".reveal-section-left",
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+              pin:true,
+            },
+          },
+        );
+        gsap.set(".frame-right", {
+          clipPath: "polygon(100% 100%, 100% 0%, 100% 0%, 100% 100%)",
+        });
+        gsap.from(".frame-right", {
+          clipPath: "polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%)",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: ".reveal-section-right",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            pin: true,
+          },
+        });
+        });
 
   // Error state - Member not found
   if (!member) {
@@ -228,7 +151,6 @@ const ProfileOverview = () => {
     );
   }
 
-  // Main render
   return (
     <>
       <MetaData member={member} />
@@ -237,8 +159,7 @@ const ProfileOverview = () => {
         <Navigator
           member={member}
           activeSection={activeSection}
-          scrollToSection={scrollToSection}
-          sections={sections}
+          sectionRefs={sectionRefs}
         />
 
         {/* Hero Section - Combined Banner and Cover Image */}
@@ -248,18 +169,40 @@ const ProfileOverview = () => {
         />
 
         {/* About Section */}
-        <AboutSection
-          member={member}
-          elementRefs={elementRefs}
-          sectionRefs={sectionRefs}
-        />
+        <section className="relative w-full h-screen flex items-center justify-center reveal-section-left">
+          <AboutSection
+            member={member}
+            elementRefs={elementRefs}
+            sectionRefs={sectionRefs}
+            containerClass="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 frame-left"
+            type="light"
+          />
+          <AboutSection
+            member={member}
+            elementRefs={elementRefs}
+            sectionRefs={sectionRefs}
+            containerClass="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"
+            type="dark"
+          />
+        </section>
 
         {/* Professional Details Section */}
+        <section className="relative w-full min-h-screen flex items-center justify-center reveal-section-right bg-gray-300">
         <ProfessionalSection
           member={member}
           elementRefs={elementRefs}
           sectionRefs={sectionRefs}
+          containerClass="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 frame-right"
+          type="dark"
         />
+        <ProfessionalSection
+          member={member}
+          elementRefs={elementRefs}
+          sectionRefs={sectionRefs}
+          containerClass="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"
+          type="light"
+        />
+        </section>
 
         {/* Skills & Education Section */}
         <SkillSection

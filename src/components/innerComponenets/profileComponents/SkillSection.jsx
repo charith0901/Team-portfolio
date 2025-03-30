@@ -4,7 +4,7 @@ const SkillSection = ({ member, sectionRefs, elementRefs }) => {
   return (
     <section
       ref={sectionRefs.skills}
-      className="min-h-screen py-16 bg-gray-50"
+      className="min-h-screen relative w-full bg-gray-50"
     >
       <div className="container mx-auto px-4">
         <AnimatedTitle

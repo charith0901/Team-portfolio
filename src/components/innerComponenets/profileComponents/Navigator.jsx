@@ -1,5 +1,23 @@
 import { ChevronUp, Github, Linkedin, Mail } from "lucide-react";
-const Navigator = ({ member, activeSection, scrollToSection, sections }) => {
+import {User, Briefcase, Code, GraduationCap} from "lucide-react";
+const Navigator = ({ member, activeSection,sectionRefs }) => {
+
+  const sections = [
+      { id: "about", icon: User, label: "About section" },
+      { id: "details", icon: Briefcase, label: "Details section" },
+      { id: "skills", icon: Code, label: "Skills section" },
+      { id: "projects", icon: GraduationCap, label: "Projects section" },
+    ];
+  
+    const scrollToSection = (sectionId) => {
+      if (sectionRefs[sectionId]?.current) {
+        window.scrollTo({
+          top: sectionRefs[sectionId].current.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    };
+
   return (
     <div className="fixed right-6 sm:right-3 top-1/2 transform -translate-y-1/2 z-50">
       <div className="flex flex-col gap-4 sm:gap-2 bg-gray-400 backdrop-blur-sm p-3 sm:p-2 rounded-full shadow-lg">
