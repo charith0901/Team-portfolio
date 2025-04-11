@@ -343,6 +343,7 @@ export const teamMembers = [
     location: "Sri Lanka",
     skills: [
       { language: "JavaScript", level: 90 },
+      
       { language: "Python", level: 35 },
       { language: "Java", level: 70 },
       { language: "C#", level: 40},
