@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 
 import Button from "./Button";
 import Typewriter from "./typewriter-component";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +15,7 @@ const Hero = ({ member }) => {
   const randomlnIndex = Math.floor(Math.random() * lastName.length);
   const randomfnIndex = Math.floor(Math.random() * firstName.length);
 
-  useGSAP(() => {
+  useEffect(()=>{
     gsap.set("#img-frame", {
       clipPath: "polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%)",
       borderRadius: "0% 0% 53% 10%",
@@ -30,7 +31,7 @@ const Hero = ({ member }) => {
         scrub: true,
       },
     });
-  });
+  },[]);
 
   return (
     <div className="relative h-dvh w-screen overflow-x-hidden  bg-[url('/images/constellation.png')] bg-cover bg-repeat bg-center bg-fixed">
