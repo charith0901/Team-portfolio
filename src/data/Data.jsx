@@ -389,25 +389,7 @@ export const teamMembers = [
       languages: ["Django", "Python", "HTML", "Tailwind CSS"],}, {}]
      },
      {
-      title: "Weather-Explorer",
-      description:
-        "A weather application built using React, Node.js,Express and OpenWeather Api.",
-      image: "/images/charith/weather_explorer.png",
-      tags: ["React", "Node.js", "Express", "OpenWeather Api"],
-      link: {
-        github: "https://github.com/charith0901/Weather-Explorer",
-        content: "https://weather-explorer-bay.vercel.app/",
-      },
-      status: "Completed",
-      creation_date: "2025-03-11",
-      features: [
-        "Real-time weather updates",
-        "Location-based weather data",
-        "User-friendly interface",
-        "Weather forecast",
-      ],
-      languages: ["React", "Node.js", "Express", "OpenWeather Api"],
-    },
+      
 {
   title: "Explore Wild – The Zoo Management System",
   description: "A comprehensive Zoo Management System with a web-based interface. Built using Next.js and TypeScript on the frontend and Spring Boot with MySQL on the backend, it helps manage zoo operations efficiently.",
