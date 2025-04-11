@@ -336,14 +336,14 @@ export const teamMembers = [
     name: "Thimathi Kanchana",
     username: "thimathi_dev",
     roles: ["Quality Assuarance", "Software Tester","Computer Science Undergraduate"],
-    image: "/images/thimathi/mem_thimathi.jpeg",
-    coverImage: "/images/thimathi/cover_thimathi.jpeg",
+    image: "/images/thimathi/mem_thimathi.jpg",
+    coverImage: "/images/thimathi/cover_thimathi.jpg",
     resume: "",
     bio: "Computer Science undergraduate with a strong interest in Quality Assurance, software testing, and improving product reliability. Passionate about finding bugs and ensuring high-quality software",
     location: "Sri Lanka",
     skills: [
       { language: "JavaScript", level: 90 },
-      
+
       { language: "Python", level: 35 },
       { language: "Java", level: 70 },
       { language: "C#", level: 40},
@@ -370,8 +370,65 @@ export const teamMembers = [
       linkedin: "https://www.linkedin.com/in/kanchana-thimathi-364b13299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       email: "kanchanathimathi463@gmail.com",
     },
-    projects: [{}, {}],
+    projects: [{title: "Hakmana-CRM",
+      description: "A web-based Complaint Management System for Hakmana Pradeshiya Sabha, built with modern technologies for efficient issue tracking and resolution..",
+      //image: "/api/placeholder/400/300",
+      tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
+      link: {
+        github: "https://github.com/charith0901/TODOTO",
+        content: " ",
+      },
+      status: "Completed",
+      creation_date: "2025-03-07",
+      features: [
+        "Task creation and management",
+        "Admin Dashboard",
+        "User authentication",
+        "Simple UI for easy navigation",
+      ],
+      languages: ["Django", "Python", "HTML", "Tailwind CSS"],}, {}]
+     },
+     {
+      title: "Weather-Explorer",
+      description:
+        "A weather application built using React, Node.js,Express and OpenWeather Api.",
+      image: "/images/charith/weather_explorer.png",
+      tags: ["React", "Node.js", "Express", "OpenWeather Api"],
+      link: {
+        github: "https://github.com/charith0901/Weather-Explorer",
+        content: "https://weather-explorer-bay.vercel.app/",
+      },
+      status: "Completed",
+      creation_date: "2025-03-11",
+      features: [
+        "Real-time weather updates",
+        "Location-based weather data",
+        "User-friendly interface",
+        "Weather forecast",
+      ],
+      languages: ["React", "Node.js", "Express", "OpenWeather Api"],
+    },
+{
+  title: "Explore Wild – The Zoo Management System",
+  description: "A comprehensive Zoo Management System with a web-based interface. Built using Next.js and TypeScript on the frontend and Spring Boot with MySQL on the backend, it helps manage zoo operations efficiently.",
+  image: "/api/placeholder/400/300",
+  tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
+  link: {
+    github: "https://github.com/charith0901/explore-wild", // Replace if needed
+    content: " "
   },
+  status: "Completed",
+  creation_date: "2025-03-01",
+  features: [
+    "Role-based access control for staff and admins",
+    "Real-time alerts and notifications",
+    "Admin dashboard for managing animals, feed schedules, and staff",
+    "Storybook.js for UI consistency",
+    "Responsive and modern UI using Tailwind CSS"
+  ],
+  languages: ["TypeScript", "Next.js", "Spring Boot", "MySQL", "Tailwind CSS"]
+},
+
   {
     name: "Asanka Indunil",
     username: "asanka_dev",
