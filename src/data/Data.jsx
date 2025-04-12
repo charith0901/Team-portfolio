@@ -388,7 +388,6 @@ export const teamMembers = [
       ],
       languages: ["Django", "Python", "HTML", "Tailwind CSS"],}, {}]
      },
-     {
       
 {
   title: "Explore Wild – The Zoo Management System",
@@ -396,8 +395,8 @@ export const teamMembers = [
   image: "/api/placeholder/400/300",
   tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
   link: {
-    github: "https://github.com/charith0901/explore-wild", // Replace if needed
-    content: " "
+    github: "https://github.com/charith0901/explore-wild",
+    content: " ",
   },
   status: "Completed",
   creation_date: "2025-03-01",
