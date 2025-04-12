@@ -335,7 +335,7 @@ export const teamMembers = [
   {
     name: "Thimathi Kanchana",
     username: "thimathi_dev",
-    roles: ["Quality Assuarance", "Software Tester","Computer Science Undergraduate"],
+    roles: ["Quality Assurance", "Software Tester","Computer Science Undergraduate"],
     image: "/images/thimathi/mem_thimathi.jpg",
     coverImage: "/images/thimathi/cover_thimathi.jpg",
     resume: "",
