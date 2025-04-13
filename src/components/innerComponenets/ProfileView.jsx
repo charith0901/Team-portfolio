@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { teamMembers, projects } from "../../data/Data";
 import ProjectShowcase from "../project-showcase";
@@ -99,7 +98,7 @@ const ProfileOverview = () => {
     // Cleanup function
     return () => ctx.revert();
   }, [member]);
-      useGSAP(() => {
+      useEffect(() => {
           gsap.set(".frame-left", {
             clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
           });
@@ -129,7 +128,7 @@ const ProfileOverview = () => {
             pin: true,
           },
         });
-        });
+        },[]);
 
   // Error state - Member not found
   if (!member) {
