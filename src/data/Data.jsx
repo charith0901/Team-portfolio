@@ -335,47 +335,47 @@ export const teamMembers = [
   {
     name: "Thimathi Kanchana",
     username: "thimathi_dev",
-    roles: ["", "", ""],
-    image: "/images/thimathi/mem_thimathi.jpeg",
-    coverImage: "/images/thimathi/cover_thimathi.jpeg",
+    roles: ["Quality Assurance", "Software Tester","Computer Science Undergraduate"],
+    image: "/images/thimathi/mem_thimathi.jpg",
+    coverImage: "/images/thimathi/cover_thimathi.jpg",
     resume: "",
-    bio: "",
+    bio: "Computer Science undergraduate with a strong interest in Quality Assurance, software testing, and improving product reliability. Passionate about finding bugs and ensuring high-quality software",
     location: "Sri Lanka",
     skills: [
       { language: "JavaScript", level: 90 },
-      { language: "Python", level: 85 },
-      { language: "React", level: 88 },
-      { language: "Node.js", level: 82 },
-      { language: "TypeScript", level: 80 },
+
+      { language: "Python", level: 35 },
+      { language: "Java", level: 70 },
+      { language: "C#", level: 40},
+      { language: "PHP", level: 70},
     ],
-    experienceLevel: "Intermediate",
+    experienceLevel: "Entry-level",
     education: [
       {
-        college: "University (Ongoing)",
+        college: "University  of Ruhuna (Ongoing)",
         year: "Expected Graduation Year:2026",
       },
     ],
     certifications: [],
     yearsOfExperience: 0,
     languages: ["English", "Sinhala"],
-    projectsCompleted: 5,
+    projectsCompleted: 2,
     availability: "Part-time",
-    interests: ["Machine Learning", "Open Source", "Web Development"],
-    favoriteTech: "React & Spring Boot",
-    phone: "+94 XXX XXX XXXX",
+    interests: ["Quality Assuarance", "Software Testing", "Web Development"],
+    favoriteTech: "Selenium & Postman",
+    phone: "+94 762770635",
     awards: [],
     social: {
-      github: "",
-      linkedin: "",
-      email: "",
+      github: "https://github.com/thima1999",
+      linkedin: "https://www.linkedin.com/in/kanchana-thimathi-364b13299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "kanchanathimathi463@gmail.com",
     },
-
     projects: [{title: "Hakmana-CRM",
       description: "A web-based Complaint Management System for Hakmana Pradeshiya Sabha, built with modern technologies for efficient issue tracking and resolution..",
       //image: "/api/placeholder/400/300",
       tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
       link: {
-        github: "",
+        github: "https://github.com/charith0901/TODOTO",
         content: " ",
       },
       status: "Completed",
@@ -386,15 +386,14 @@ export const teamMembers = [
         "User authentication",
         "Simple UI for easy navigation",
       ],
-      languages: ["Django", "Python", "HTML", "Tailwind CSS"],},
-      {
+      languages: ["Django", "Python", "HTML", "Tailwind CSS"],},{
         title: "Explore Wild – The Zoo Management System",
         description: "A comprehensive Zoo Management System with a web-based interface. Built using Next.js and TypeScript on the frontend and Spring Boot with MySQL on the backend, it helps manage zoo operations efficiently.",
         image: "/api/placeholder/400/300",
         tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
         link: {
-          github: "",
-          content: "",
+          github: "", 
+          content: " "
         },
         status: "Completed",
         creation_date: "2025-03-01",
@@ -407,11 +406,7 @@ export const teamMembers = [
         ],
         languages: ["TypeScript", "Next.js", "Spring Boot", "MySQL", "Tailwind CSS"]
       }]
-     },   
-
-
-
-
+     },     
   {
     name: "Asanka Indunil",
     username: "asanka_dev",
