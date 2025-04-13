@@ -369,8 +369,49 @@ export const teamMembers = [
       linkedin: "",
       email: "",
     },
-    projects: [{}, {}],
-  },
+
+    projects: [{title: "Hakmana-CRM",
+      description: "A web-based Complaint Management System for Hakmana Pradeshiya Sabha, built with modern technologies for efficient issue tracking and resolution..",
+      //image: "/api/placeholder/400/300",
+      tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
+      link: {
+        github: "",
+        content: " ",
+      },
+      status: "Completed",
+      creation_date: "2025-03-07",
+      features: [
+        "Task creation and management",
+        "Admin Dashboard",
+        "User authentication",
+        "Simple UI for easy navigation",
+      ],
+      languages: ["Django", "Python", "HTML", "Tailwind CSS"],},
+      {
+        title: "Explore Wild – The Zoo Management System",
+        description: "A comprehensive Zoo Management System with a web-based interface. Built using Next.js and TypeScript on the frontend and Spring Boot with MySQL on the backend, it helps manage zoo operations efficiently.",
+        image: "/api/placeholder/400/300",
+        tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
+        link: {
+          github: "",
+          content: "",
+        },
+        status: "Completed",
+        creation_date: "2025-03-01",
+        features: [
+          "Role-based access control for staff and admins",
+          "Real-time alerts and notifications",
+          "Admin dashboard for managing animals, feed schedules, and staff",
+          "Storybook.js for UI consistency",
+          "Responsive and modern UI using Tailwind CSS"
+        ],
+        languages: ["TypeScript", "Next.js", "Spring Boot", "MySQL", "Tailwind CSS"]
+      }]
+     },   
+
+
+
+
   {
     name: "Asanka Indunil",
     username: "asanka_dev",
