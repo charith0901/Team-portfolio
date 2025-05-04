@@ -78,7 +78,7 @@ export const teamMembers = [
   {
     name: "Gimhana Deshan",
     username: "gimhana_dev",
-    roles: ["Full Stack Developer","Backend Developer", "Frontend Developer"],
+    roles: ["Full Stack Developer", "Backend Developer", "Frontend Developer"],
     image: "/images/gimhana/mem_gimhana.jpg",
     coverImage: "/images/gimhana/cover_gimhana.jpg",
     resume: "/documents/gimhana/resume_gimhana.pdf",
@@ -93,7 +93,7 @@ export const teamMembers = [
       { language: "Node.js" },
       { language: "TypeScript" },
     ],
-    experienceLevel: "Intermediate",
+    experienceLevel: "beginner",
     education: [
       {
         college: "University (Ongoing)",
@@ -115,6 +115,87 @@ export const teamMembers = [
       email: "gimhanadeshan00@gmail.com",
     },
     projects: [
+      {
+        title: "Exam Management System (EMS)",
+        description:
+          "The Exam Management System (EMS) is a robust platform designed to streamline the exam-related operations of the Computer Science Department. It automates critical processes such as exam scheduling, paper creation, marking, moderation, and progress tracking, ensuring efficiency and accuracy.",
+        image: "/images/gimhana/ems/welcom.png",
+        demostrationImages: [
+          "/images/gimhana/ems/welcom.png",
+          "/images/gimhana/ems/Dashboard.png",
+          "/images/gimhana/ems/Calender.png",
+          "/images/gimhana/ems/Degree.png",
+          "/images/gimhana/ems/Users.png",
+          "/images/gimhana/ems/Timetable.png",
+          "/images/gimhana/ems/SyncoTimetable.png",
+          "/images/gimhana/ems/Moderation.png",
+          "/images/gimhana/ems/Moderation1.png",
+          "/images/gimhana/ems/second.jpg",
+          "/images/gimhana/ems/grading.jpg",
+        ],
+        tags: [
+          "React",
+          "TypeScript",
+          "Spring Boot (Java)",
+          "MySQL",
+          "Tailwind CSS",
+          "JWT",
+          "Docker",
+          "AES",
+        ],
+        link: {
+          github: "https://github.com/gimhanadeshan/EMS",
+          content: "http://13.53.133.27/",
+        },
+        features: [
+          "Exam Scheduling",
+          "Paper Creation & Moderation",
+          "Encrypted Paper Storage",
+          "Marking & Evaluation",
+          "Progress Tracking",
+          "User Management",
+          "Timetable Synchronization",
+          "Responsive Design",
+          "Secure Authentication",
+          "Historical Data Management",
+          "Data Visualization",
+        ],
+        languages: [
+          "React",
+          "TypeScript",
+          "Spring Boot (Java)",
+          "MySQL",
+          "Tailwind CSS",
+          "JWT",
+          "Docker",
+          "AES",
+        ],
+      },
+      {
+        title: "Student Performance Predictor",
+        description:
+          "This is a web application that predicts a student's performance (Pass/Fail) based on their attendance, study hours, and assignment scores. The application is built with a React frontend, Flask backend, and a machine learning model.",
+        image: "/images/gimhana/predictor/prediction.jpeg",
+        tags: ["Flask ", "React", "Scikit-learn", "SQLite", "Machine Learning"],
+        link: {
+          github:
+            "https://github.com/gimhanadeshan/Student-Performance-Predictor",
+          content: "http://www.spp.gimhana.live",
+        },
+        features: [
+          "User-friendly interface for entering student data",
+          "Predicts whether a student will pass or fail",
+          "Displays prediction history",
+          "Styled for a modern look.",
+        ],
+        languages: [
+          "React",
+          "Flask",
+          "Scikit-learn",
+          "SQLite",
+          "Machine Learning",
+        ],
+      },
       {
         title: "Wildlife HMS",
         description:
@@ -157,12 +238,54 @@ export const teamMembers = [
           "SceneBuilder",
         ],
       },
+      {
+        title: "Cookbook Connect",
+        description:
+          "Cookbook Connect is a full-stack web application designed for food lovers to share, discover, and manage recipes. It includes features for both regular users and admins, making it ideal for collaborative cooking and content moderation",
+        image: "/images/gimhana/cookbook/welcome.jpeg",
+        demostrationImages: [
+          "/images/gimhana/cookbook/welcome.jpeg",
+          "/images/gimhana/cookbook/home.jpeg",
+          "/images/gimhana/cookbook/recipes.jpeg",
+          "/images/gimhana/cookbook/myRecipes.jpeg",
+        ],
+        tags: [
+          "React",
+          "Inertia",
+          "Laravel",
+          "MySQL",
+          "Tailwind CSS",
+          "Chart.js",
+          "Laravel Breeze",
+        ],
+        link: {
+          github: "https://github.com/gimhanadeshan/Cookbook-Connect",
+          content: "",
+        },
+        features: [
+          "Register/Login",
+          "Add, update, and delete your own recipes",
+          "View and search recipes by category, title, or ingredients",
+          "SPost and view reviews on recipes",
+          "Admin dashboard for managing users,categories and recipes",
+          "Responsive design for mobile and desktop",
+        ],
+        languages: [
+          "React",
+          "Inertia",
+          "Laravel",
+          "MySQL",
+          "Tailwind CSS",
+          "Chart.js",
+          "Laravel Breeze",
+        ],
+      },
     ],
   },
   {
     name: "Charith Jayasankha",
     username: "charith_dev",
-    roles: ["Full Stack Developer","Backend Developer","Frontend Developer"],
+    roles: ["Full Stack Developer", "Backend Developer", "Frontend Developer"],
     image: "/images/charith/mem_charith.jpeg",
     coverImage: "/images/charith/cover_charith.jpg",
     resume: "/documents/charith/resume_charith.pdf",
@@ -296,7 +419,11 @@ export const teamMembers = [
   {
     name: "Oshan Harshad",
     username: "oshan_dev",
-    roles: ["Full Stack Developer","Tech Enthusiast","Computer Science Undergraduate"],
+    roles: [
+      "Full Stack Developer",
+      "Tech Enthusiast",
+      "Computer Science Undergraduate",
+    ],
     image: "/images/oshan/mem_oshan.jpg",
     coverImage: "/images/oshan/cover_oshan.jpg",
     resume: "/documents/oshan/resume_oshan.pdf",
@@ -309,7 +436,7 @@ export const teamMembers = [
       { language: "SpringBoot", level: 82 },
       { language: "Laravel", level: 80 },
       { language: "Java", level: 80 },
-      { language: "PHP", level: 70},
+      { language: "PHP", level: 70 },
     ],
     experienceLevel: "Intermediate",
     education: [
@@ -323,7 +450,7 @@ export const teamMembers = [
     languages: ["English", "Sinhala"],
     projectsCompleted: 5,
     availability: "Full-time",
-    interests: [ "Web Development","Blockchain"],
+    interests: ["Web Development", "Blockchain"],
     favoriteTech: "React & Spring Boot",
     phone: "+94717529331",
     awards: [],
@@ -337,7 +464,11 @@ export const teamMembers = [
   {
     name: "Thimathi Kanchana",
     username: "thimathi_dev",
-    roles: ["Quality Assurance", "Software Tester","Computer Science Undergraduate"],
+    roles: [
+      "Quality Assurance",
+      "Software Tester",
+      "Computer Science Undergraduate",
+    ],
     image: "/images/thimathi/mem_thimathi.jpg",
     coverImage: "/images/thimathi/cover_thimathi.jpg",
     resume: "",
@@ -348,8 +479,8 @@ export const teamMembers = [
 
       { language: "Python", level: 35 },
       { language: "Java", level: 70 },
-      { language: "C#", level: 40},
-      { language: "PHP", level: 70},
+      { language: "C#", level: 40 },
+      { language: "PHP", level: 70 },
     ],
     experienceLevel: "Entry-level",
     education: [
@@ -369,33 +500,40 @@ export const teamMembers = [
     awards: [],
     social: {
       github: "https://github.com/thima1999",
-      linkedin: "https://www.linkedin.com/in/kanchana-thimathi-364b13299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      linkedin:
+        "https://www.linkedin.com/in/kanchana-thimathi-364b13299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       email: "kanchanathimathi463@gmail.com",
     },
-    projects: [{title: "Hakmana-CRM",
-      description: "A web-based Complaint Management System for Hakmana Pradeshiya Sabha, built with modern technologies for efficient issue tracking and resolution..",
-      //image: "/api/placeholder/400/300",
-      tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
-      link: {
-        github: "https://github.com/charith0901/TODOTO",
-        content: " ",
+    projects: [
+      {
+        title: "Hakmana-CRM",
+        description:
+          "A web-based Complaint Management System for Hakmana Pradeshiya Sabha, built with modern technologies for efficient issue tracking and resolution..",
+        //image: "/api/placeholder/400/300",
+        tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
+        link: {
+          github: "https://github.com/charith0901/TODOTO",
+          content: " ",
+        },
+        status: "Completed",
+        creation_date: "2025-03-07",
+        features: [
+          "Task creation and management",
+          "Admin Dashboard",
+          "User authentication",
+          "Simple UI for easy navigation",
+        ],
+        languages: ["Django", "Python", "HTML", "Tailwind CSS"],
       },
-      status: "Completed",
-      creation_date: "2025-03-07",
-      features: [
-        "Task creation and management",
-        "Admin Dashboard",
-        "User authentication",
-        "Simple UI for easy navigation",
-      ],
-      languages: ["Django", "Python", "HTML", "Tailwind CSS"],},{
+      {
         title: "Explore Wild – The Zoo Management System",
-        description: "A comprehensive Zoo Management System with a web-based interface. Built using Next.js and TypeScript on the frontend and Spring Boot with MySQL on the backend, it helps manage zoo operations efficiently.",
+        description:
+          "A comprehensive Zoo Management System with a web-based interface. Built using Next.js and TypeScript on the frontend and Spring Boot with MySQL on the backend, it helps manage zoo operations efficiently.",
         image: "/api/placeholder/400/300",
         tags: ["Next.js", "Spring Boot", "MySQL", "TypeScript"],
         link: {
-          github: "", 
-          content: " "
+          github: "",
+          content: " ",
         },
         status: "Completed",
         creation_date: "2025-03-01",
@@ -404,11 +542,18 @@ export const teamMembers = [
           "Real-time alerts and notifications",
           "Admin dashboard for managing animals, feed schedules, and staff",
           "Storybook.js for UI consistency",
-          "Responsive and modern UI using Tailwind CSS"
+          "Responsive and modern UI using Tailwind CSS",
         ],
-        languages: ["TypeScript", "Next.js", "Spring Boot", "MySQL", "Tailwind CSS"]
-      }]
-     },     
+        languages: [
+          "TypeScript",
+          "Next.js",
+          "Spring Boot",
+          "MySQL",
+          "Tailwind CSS",
+        ],
+      },
+    ],
+  },
   {
     name: "Asanka Indunil",
     username: "asanka_dev",
@@ -447,7 +592,7 @@ export const teamMembers = [
       email: "",
     },
     projects: [{}, {}],
-  }
+  },
 ];
 
 // src/data/projectData.js
