@@ -107,10 +107,10 @@ const ProfileOverview = () => {
             ease: "power1.inOut",
             scrollTrigger: {
               trigger: ".reveal-section-left",
-              start: "top top",
-              end: "bottom top",
+              start: "top bottom",
+              end: "80% center",
               scrub: true,
-              pin:true,
+              //pin:true,
             },
           },
         );
@@ -122,10 +122,10 @@ const ProfileOverview = () => {
           ease: "power1.inOut",
           scrollTrigger: {
             trigger: ".reveal-section-right",
-            start: "top top",
-            end: "bottom top",
+            start: "top bottom",
+            end: "80% center",
             scrub: true,
-            pin: true,
+            //pin: true,
           },
         });
         },[]);
@@ -168,7 +168,7 @@ const ProfileOverview = () => {
         />
 
         {/* About Section */}
-        <section className="relative w-full h-screen flex items-center justify-center reveal-section-left">
+        <section className="relative w-full h-screen flex items-center justify-center bg-gray-300 reveal-section-left">
           <AboutSection
             member={member}
             elementRefs={elementRefs}
@@ -186,7 +186,7 @@ const ProfileOverview = () => {
         </section>
 
         {/* Professional Details Section */}
-        <section className="relative w-full min-h-screen flex items-center justify-center reveal-section-right bg-gray-300">
+        <section className="relative w-full min-h-screen flex items-center justify-center reveal-section-right bg-gray-300 py-12">
         <ProfessionalSection
           member={member}
           elementRefs={elementRefs}
