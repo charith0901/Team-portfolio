@@ -1,208 +1,192 @@
-import { Code, Clock, Globe, Heart } from "lucide-react";
+import { Code, Clock, Globe, Heart, CheckCircle2, Award, Star } from "lucide-react";
 import AnimatedTitle from "../../AnimatedTitle";
-import clsx from "clsx";
 
 const ProfessionalSection = ({ member, sectionRefs, elementRefs, containerClass, type }) => {
   const isDark = type === "dark";
+  
+  // Theme configuration
+  const theme = {
+    background: isDark ? "bg-gray-800" : "bg-white",
+    backgroundAlt: isDark ? "bg-gray-900" : "bg-gray-50",
+    text: {
+      primary: isDark ? "text-white" : "text-gray-800",
+      secondary: isDark ? "text-gray-300" : "text-gray-700",
+      muted: isDark ? "text-gray-400" : "text-gray-500",
+    },
+    border: isDark ? "border-gray-700" : "border-gray-200",
+    accent: {
+      primary: isDark ? "bg-blue-500" : "bg-blue-600",
+      secondary: isDark ? "bg-blue-400" : "bg-blue-500",
+      text: isDark ? "text-blue-400" : "text-blue-600",
+      light: isDark ? "bg-blue-500/20" : "bg-blue-500/10",
+    },
+    card: {
+      highlight: isDark ? "bg-gray-700" : "bg-blue-50",
+      hover: isDark ? "hover:bg-gray-700" : "hover:bg-blue-50",
+    }
+  };
+
+  // Reusable detail card component
+  const DetailCard = ({ icon: Icon, title, value, highlight }) => {
+    return (
+      <div className={`relative overflow-hidden rounded-xl border ${theme.border} transition-all duration-300 ${
+        highlight ? theme.card.highlight : theme.background
+      } group hover:shadow-lg`}>
+        {/* Accent decoration */}
+        <div className="absolute h-full w-1 left-0 top-0 bottom-0 bg-gradient-to-b from-blue-400 to-blue-600 opacity-70"></div>
+        
+        {/* Card content */}
+        <div className="p-5 pl-6">
+          <div className="flex items-center mb-3">
+            {/* Floating icon */}
+            <div className={`absolute -right-3 -top-3 w-16 h-16 rounded-full ${theme.accent.light} flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity duration-300`}>
+              <Icon size={30} className={theme.accent.text} />
+            </div>
+            
+            {/* Title with underline effect */}
+            <h3 className={`text-lg font-medium ${theme.text.secondary} relative inline-flex items-center`}>
+              <Icon size={18} className={`mr-2 ${theme.accent.text}`} />
+              <span className="relative">
+                {title}
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${theme.accent.primary} group-hover:w-full transition-all duration-300`}></span>
+              </span>
+            </h3>
+          </div>
+          
+          {/* Value with larger font */}
+          <div className="mt-2">
+            <p className={`text-xl font-medium ${theme.text.primary}`}>
+              {value}
+            </p>
+          </div>
+          
+          {/* Decorative element */}
+          <div className="absolute bottom-2 right-2">
+            <span className={`inline-block w-2 h-2 rounded-full ${theme.accent.secondary} opacity-40 group-hover:opacity-70 transition-opacity duration-300`}></span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Array for languages and interests to enable better styling
+  const renderLanguagesOrInterests = (items, title, Icon) => {
+    return (
+      <div className={`rounded-xl border ${theme.border} ${theme.background} overflow-hidden transition-all duration-300 hover:shadow-lg`}>
+        {/* Header with decoration */}
+        <div className={`p-4 border-b ${theme.border} flex items-center relative`}>
+          <span className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-400 to-blue-600"></span>
+          <Icon size={18} className={`mr-3 ${theme.accent.text}`} />
+          <h3 className={`text-lg font-medium ${theme.text.secondary}`}>{title}</h3>
+        </div>
+        
+        {/* Items grid */}
+        <div className="p-4">
+          <div className="flex flex-wrap gap-2">
+            {items.map((item, index) => (
+              <span 
+                key={index} 
+                className={`px-3 py-1 rounded-full text-sm ${theme.accent.light} ${theme.accent.text} flex items-center gap-1 transition-transform duration-300 hover:scale-105 cursor-default`}
+              >
+                <CheckCircle2 size={12} />
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div
       ref={sectionRefs.details}
-      className={clsx(
-        containerClass,
-       "py-6 px-4 sm:px-6 md:px-8",
-        "flex flex-col items-center justify-center"
-      )}
+      className={`${containerClass} py-8 px-4 sm:px-6 md:px-8`}
     >
-      <div className="container mx-auto px-4">
-        <AnimatedTitle
-          title=" Prof<b>e</b>ssional <br />  Det<b>a</b>ils"
-          containerClass={clsx(
-            "mt-5 text-center",
-            isDark ? "!text-white" : "!text-black"
-          )}
-        />
-
-        <div className={clsx(
-          "rounded-2xl shadow-lg p-6 md:p-8 border transition-all duration-300 hover:shadow-xl",
-          isDark ? "bg-gray-800 border-gray-700 text-white" : "bg-white border-gray-100 text-gray-800"
-        )}>
-          <div ref={elementRefs.details} className="space-y-8">
-            {/* Details rendered using consistent pattern to avoid duplication */}
+      {/* Decorative elements */}
+      <div className="container mx-auto px-4 relative">
+        {/* Floating decorative elements */}
+        <div className="absolute -left-4 top-10 opacity-10">
+          <Code size={60} className={theme.accent.text} />
+        </div>
+        <div className="absolute right-10 bottom-0 opacity-10">
+          <Star size={40} className={theme.accent.text} />
+        </div>
+        
+        {/* Title with animation */}
+        <div className="mb-8 relative">
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-blue-400/20 to-blue-600/20 blur-xl"></div>
+          <AnimatedTitle
+            title=" Prof<b>e</b>ssional <br />  Det<b>a</b>ils"
+            containerClass={`mt-5 text-center ${isDark ? "!text-white" : "!text-black"}`}
+          />
+        </div>
+        
+        {/* Main content with card grid */}
+        <div ref={elementRefs.details} className="relative z-10">
+          {/* Top row badge */}
+          <div className="flex justify-center mb-6">
+            <div className={`inline-flex items-center px-4 py-2 rounded-full ${theme.backgroundAlt} ${theme.text.muted} border ${theme.border} gap-2`}>
+              <Award size={16} className={theme.accent.text} />
+              <span>Professional Information</span>
+            </div>
+          </div>
+          
+          {/* Grid layout for details */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Experience Level */}
             {member.experienceLevel && (
-              <div className="flex items-start group">
-                <div className={clsx(
-                  "p-2 rounded-full mr-4 transition-all duration-300 transform group-hover:scale-110 mt-1",
-                  isDark ? "bg-gray-700 group-hover:bg-gray-600" : "bg-gray-100 group-hover:bg-blue-100"
-                )}>
-                  <Code size={20} className={clsx(
-                    "transition-colors",
-                    isDark ? "text-blue-400 group-hover:text-blue-300" : "text-blue-600 group-hover:text-blue-700"
-                  )} />
-                </div>
-                <div>
-                  <h3 className={clsx(
-                    "text-lg font-medium flex items-center group",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    <span className="relative">
-                      Experience Level
-                      <span className={clsx(
-                        "absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300",
-                        isDark ? "bg-blue-400" : "bg-blue-500"
-                      )}></span>
-                    </span>
-                  </h3>
-                  <p className={clsx(
-                    "text-xl mt-1",
-                    isDark ? "text-white" : "text-gray-800"
-                  )}>
-                    {member.experienceLevel}
-                  </p>
-                </div>
-              </div>
+              <DetailCard 
+                icon={Code} 
+                title="Experience Level" 
+                value={member.experienceLevel}
+                highlight={true}
+              />
             )}
-
+            
+            {/* Years of Experience */}
             {member.yearsOfExperience != null && (
-              <div className="flex items-start group">
-                <div className={clsx(
-                  "p-2 rounded-full mr-4 transition-all duration-300 transform group-hover:scale-110 mt-1",
-                  isDark ? "bg-gray-700 group-hover:bg-gray-600" : "bg-gray-100 group-hover:bg-blue-100"
-                )}>
-                  <Clock size={20} className={clsx(
-                    "transition-colors",
-                    isDark ? "text-blue-400 group-hover:text-blue-300" : "text-blue-600 group-hover:text-blue-700"
-                  )} />
-                </div>
-                <div>
-                  <h3 className={clsx(
-                    "text-lg font-medium flex items-center group",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    <span className="relative">
-                      Years of Experience
-                      <span className={clsx(
-                        "absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300",
-                        isDark ? "bg-blue-400" : "bg-blue-500"
-                      )}></span>
-                    </span>
-                  </h3>
-                  <p className={clsx(
-                    "text-xl mt-1",
-                    isDark ? "text-white" : "text-gray-800"
-                  )}>
-                    {member.yearsOfExperience > 0
-                      ? member.yearsOfExperience + " years"
-                      : "Studying"}
-                  </p>
-                </div>
-              </div>
+              <DetailCard 
+                icon={Clock} 
+                title="Years of Experience" 
+                value={member.yearsOfExperience > 0 ? `${member.yearsOfExperience} years` : "Studying"} 
+              />
             )}
-
-            {member.languages && member.languages.length > 0 && (
-              <div className="flex items-start group">
-                <div className={clsx(
-                  "p-2 rounded-full mr-4 transition-all duration-300 transform group-hover:scale-110 mt-1",
-                  isDark ? "bg-gray-700 group-hover:bg-gray-600" : "bg-gray-100 group-hover:bg-blue-100"
-                )}>
-                  <Globe size={20} className={clsx(
-                    "transition-colors",
-                    isDark ? "text-blue-400 group-hover:text-blue-300" : "text-blue-600 group-hover:text-blue-700"
-                  )} />
-                </div>
-                <div>
-                  <h3 className={clsx(
-                    "text-lg font-medium flex items-center group",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    <span className="relative">
-                      Languages
-                      <span className={clsx(
-                        "absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300",
-                        isDark ? "bg-blue-400" : "bg-blue-500"
-                      )}></span>
-                    </span>
-                  </h3>
-                  <p className={clsx(
-                    "text-xl mt-1",
-                    isDark ? "text-white" : "text-gray-800"
-                  )}>
-                    {member.languages.join(", ")}
-                  </p>
-                </div>
-              </div>
-            )}
-
+            
+            {/* Availability */}
             {member.availability && (
-              <div className="flex items-start group">
-                <div className={clsx(
-                  "p-2 rounded-full mr-4 transition-all duration-300 transform group-hover:scale-110 mt-1",
-                  isDark ? "bg-gray-700 group-hover:bg-gray-600" : "bg-gray-100 group-hover:bg-blue-100"
-                )}>
-                  <Clock size={20} className={clsx(
-                    "transition-colors",
-                    isDark ? "text-blue-400 group-hover:text-blue-300" : "text-blue-600 group-hover:text-blue-700"
-                  )} />
-                </div>
-                <div>
-                  <h3 className={clsx(
-                    "text-lg font-medium flex items-center group",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    <span className="relative">
-                      Availability
-                      <span className={clsx(
-                        "absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300",
-                        isDark ? "bg-blue-400" : "bg-blue-500"
-                      )}></span>
-                    </span>
-                  </h3>
-                  <p className={clsx(
-                    "text-xl mt-1",
-                    isDark ? "text-white" : "text-gray-800"
-                  )}>
-                    {member.availability}
-                  </p>
-                </div>
-              </div>
+              <DetailCard 
+                icon={Clock} 
+                title="Availability" 
+                value={member.availability} 
+              />
             )}
-
+          </div>
+          
+          {/* Languages and Interests in separate containers */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Languages */}
+            {member.languages && member.languages.length > 0 && (
+              renderLanguagesOrInterests(member.languages, "Languages", Globe)
+            )}
+            
+            {/* Interests */}
             {member.interests && member.interests.length > 0 && (
-              <div className="flex items-start group">
-                <div className={clsx(
-                  "p-2 rounded-full mr-4 transition-all duration-300 transform group-hover:scale-110 mt-1",
-                  isDark ? "bg-gray-700 group-hover:bg-gray-600" : "bg-gray-100 group-hover:bg-blue-100"
-                )}>
-                  <Heart size={20} className={clsx(
-                    "transition-colors",
-                    isDark ? "text-blue-400 group-hover:text-blue-300" : "text-blue-600 group-hover:text-blue-700"
-                  )} />
-                </div>
-                <div>
-                  <h3 className={clsx(
-                    "text-lg font-medium flex items-center group",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    <span className="relative">
-                      Interests
-                      <span className={clsx(
-                        "absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300",
-                        isDark ? "bg-blue-400" : "bg-blue-500"
-                      )}></span>
-                    </span>
-                  </h3>
-                  <p className={clsx(
-                    "text-xl mt-1",
-                    isDark ? "text-white" : "text-gray-800"
-                  )}>
-                    {member.interests.join(", ")}
-                  </p>
-                </div>
-              </div>
+              renderLanguagesOrInterests(member.interests, "Interests", Heart)
             )}
+          </div>
+          
+          {/* Bottom decorative badge */}
+          <div className="flex justify-center mt-8">
+            <div className={`inline-flex items-center px-3 py-1 rounded-full ${theme.accent.light} ${theme.accent.text} text-sm gap-1.5`}>
+              <span className={`inline-block w-1.5 h-1.5 rounded-full ${theme.accent.primary}`}></span>
+              <span>Last updated: May 2025</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default ProfessionalSection;
