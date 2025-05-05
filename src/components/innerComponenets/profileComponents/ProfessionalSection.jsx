@@ -175,14 +175,6 @@ const ProfessionalSection = ({ member, sectionRefs, elementRefs, containerClass,
               renderLanguagesOrInterests(member.interests, "Interests", Heart)
             )}
           </div>
-          
-          {/* Bottom decorative badge */}
-          <div className="flex justify-center mt-8">
-            <div className={`inline-flex items-center px-3 py-1 rounded-full ${theme.accent.light} ${theme.accent.text} text-sm gap-1.5`}>
-              <span className={`inline-block w-1.5 h-1.5 rounded-full ${theme.accent.primary}`}></span>
-              <span>Last updated: May 2025</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
